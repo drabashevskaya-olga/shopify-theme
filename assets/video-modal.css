@@ -1,0 +1,107 @@
+/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
+
+.community-video-icon span.video-close-button  {
+    position: absolute;
+    right: -23px;
+    font-size: 44px;
+    top: -40px;
+    line-height: 30px;
+    height: 27px;
+    display: block;
+  cursor: pointer;
+}
+
+.w3-main,
+#main {
+    transition: margin-left 0.4s;
+}
+.video-pop-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+    background-color: rgb(255 255 255 / 90%);
+}
+
+.video-pop-modal-content {
+    margin: auto;
+/*     background-color: #fff; */
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 600px;
+}
+.w3-bar {
+    width: 100%;
+    overflow: hidden;
+}
+.w3-center .w3-bar {
+    display: inline-block;
+    width: auto;
+}
+.w3-bar .w3-bar-item {
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}
+.w3-bar .w3-dropdown-hover,
+.w3-bar .w3-dropdown-click {
+    position: static;
+    float: left;
+}
+.w3-bar .popvideo-button {
+    white-space: normal;
+}
+.w3-bar-block .w3-bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+.w3-bar-block.w3-center .w3-bar-item {
+    text-align: center;
+}
+.w3-block {
+    display: block;
+    width: 100%;
+}
+.w3-responsive {
+    display: block;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .video-pop-modal-content {
+    width: 100%;
+  }
+  .video-pop-modal{
+    padding-top: 30%;
+  }
+  .community-video-icon span.popvideo-button{
+  right:7px;
+  }
+}
+@media (min-width: 993px) {
+    .video-pop-modal-content {
+        width: 900px;
+    }
+    .w3-hide-large {
+        display: none !important;
+    }
+    .w3-sidebar.w3-collapse {
+        display: block !important;
+    }
+}
