@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Reathlete</title>
+
+</head>
+<body>
+{% section 'heatlp-main-banner' %}
+{% section 'heatlp-dark-section' %}
+{% section 'heatlp-video-section' %}
+{% section 'heatlp-benefits-section' %}
+{% section 'heatlp-review-section' %}
+{% section 'heatlp-featured-section' %}
+{% section 'heatlp-cards' %}
+{% section 'heatlp-guarantee-section' %}
+{% section 'heatlp-donation-section' %}
+{% section 'heatlp-faq' %}
+
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        $(document).ready(function () {
+            var sync1 = $("#sync1");
+            var sync2 = $("#sync2");
+            var slidesPerPage = 3; //globaly define number of elements per page
+            var syncedSecondary = true;
+
+            sync1
+                .owlCarousel({
+                    items: 1,
+                    slideSpeed: 2000,
+                    nav: true,
+                    autoplay: false,
+                    dots: true,
+                    loop: true,
+                    responsiveRefreshRate: 200,
+                    navText: [
+                        '<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 2px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>',
+                        '<svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 2px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>',
+                    ],
+                })
+                .on("changed.owl.carousel", syncPosition);
+        });
+    </script>
+
+    <script>
+        AOS.init();
+        $(document).on("click", ".dynamic-select", function () {
+            var obj = $(this);
+            $(".selected-checkbox").removeClass("active");
+            $(".dynamic-select").prop("checked",false);
+            if (obj.parents(".selected-checkbox").hasClass('active') == false) {
+                obj.parents(".selected-checkbox").addClass("active");
+            }
+           obj.prop("checked",true);
+        });
+    </script>
+</body>
+</html>

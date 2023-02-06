@@ -1,0 +1,213 @@
+<div class="compare_page_Sideheading">
+  
+
+<div class="compare_page_result page-width hello" >
+  <nav aria-label="Home" class="breadcrumb hideMobile">
+    <a class="Breadcrumbs" href="{{ routes.root_url }}">Home </a> <span>></span>
+    <span class="breadcrumb__link" aria-current="page"> {{ page.title}}</span>
+  </nav>
+    <div class="compare_page_result_inner-main">
+  <div class="compare_page_result_inner"> 
+    
+   {%- paginate collections.all.products by 1000 -%}
+
+  
+ 
+
+<div class="scrool_table">
+<table>
+  <tr class="product_price_wrapper" >
+    <th> 
+      <div class="add-btn title-compare">
+
+        <button class="button button--primary compare_label ">
+
+          {% render 'add-btn' %} 
+        </button>
+      </div>
+    </th>
+     {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{% comment %} Use string splitting to pull the value from content_for_header and apply some string clean up {% endcomment %}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+   replace:'\/','/' | 
+   replace:'%20',' ' | 
+   replace:'\u0026','&'-%}
+   {% assign pids = pageUrl | split: "?" %}
+   {% assign pidsloop = pids[1] | split: "&" %} 
+   
+
+    
+     {% for product in collections.all.products %}
+     {% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}
+    <td class="" data-value="{{ product.id }}" >
+      <div class="compare-new-main title-products-main">
+        <div class="compare-new">
+          <div class="product_compare_show product-title-main" data-value="{{ product.id }}" >
+            <div class="product-title">{{ product.title }}</div></div></div>
+      </div>
+    </td>
+    {% endif %}
+    {% endfor %}
+      {% endfor%}
+  </tr>
+  <tr class="product_image_wrapper" >
+    <th>      
+      <div class="title-compare">Price</div>
+    </th>
+	{% for product in collections.all.products %}
+     {% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}
+	<td>
+      <div class="compare_products_wrapp compare-new-main">
+        <div class="compare-new">
+          <div class="product_compare_show" data-value="{{ product.id }}" >
+
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            <form method="post" action="/cart/add">
+
+              <a href="{{ product.url | default: '#' }}" class="full-unstyled-link">  
+                <div class="product-image">  <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{product.featured_image.alt}}" /></div> </a>
+              <div class="comapre-form-inner">
+                <div class="compare_page_price price price--large price--on-sale ">
+                  {% render 'price', product:product %}
+
+                </div>
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                {%- if product.selected_or_first_available_variant.available -%}
+                <div class="comapre_button1">
+
+                  <button form="product-form-template--6606340980822__main" type="submit" data-add-to-cart="" name="add" class="product-form__submit button button--full-width button--primary" style="top: -5px !important;">BUY NOW<span style="font-size: 15px;">⌛</span></button>
+                </div>
+                <div class="comapre_button1">
+                  <input type="submit" value="Add to cart" class="btn_compare_addToCart button button--secondary" />
+                </div>
+                {%-else -%}
+                <div class="compare_sold_out">
+                  <div class="button button--primary"> {{ 'products.product.sold_out' | t }}</div>
+                </div>
+                {% endif %}</div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+       </td>
+ {% endif %}
+    {% endfor %}
+      {% endfor%}
+
+  </tr>
+  <tr class="description_wrapper">
+    <th>
+      <div class="title-compare">Description</div>
+    </th>
+
+    {% for product in collections.all.products %}
+     {% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}
+    <td>
+      <div class='desc compare-new-main'>
+        <div class='compare-new'>
+
+          <div class="product_compare_show compare_description_metafields" data-value="{{ product.id }}" >
+            {{ product.metafields.compare_description.compare.value }}
+          </div>
+        </div>
+      </div>
+    </td>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </tr>
+  <tr class="who_is_it_for_wrapper">
+    <th>
+      <div class="title-compare">Who is it for?</div>
+    </th> 
+    {% for product in collections.all.products %}
+
+    {% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}
+    <td>
+      <div class="whoisit compare-new-main">
+        <div class="compare-new">
+          <div class="product_compare_show who_is_it_metafields" data-value="{{ product.id }}" >
+            {{ product.metafields.Who_is_it_for.content.value }}
+          </div></div>
+      </div></td>
+    {% endif %}
+    {% endfor %}
+    {% endfor%}
+  </tr>
+  <tr class="health_wrapper">
+     <th>
+      <div class="title-compare">Health benifits</div>
+    </th> 
+
+  {% for product in collections.all.products %}
+ {% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}
+	<td>
+  <div class="benefits compare-new-main">
+    <div class="compare-new">
+
+      <div class="product_compare_show health_benifits_metafields" data-value="{{ product.id }}" >
+        {{ product.metafields.health_benefits.content.value }}
+      </div>
+    </div>
+  </div>
+  </td>
+ {% endif %}
+    {% endfor %}
+    {% endfor%}
+    </tr>
+  <tr class="features_wrapper">
+  <th>
+     <div class="title-compare">Features</div>
+ </th>
+ {% for product in collections.all.products %}
+{% for pidsorg in pidsloop %}
+    {% assign ppid = pidsorg | times :1%}
+    {% if ppid == product.id %}  <td>
+  <div class="content compare-new-main">
+    <div class="compare-new">
+      <div class="product_compare_show features_metafields" data-value="{{ product.id }}" >
+        {{ product.metafields.features.content.value }}
+      </div>
+    </div>
+  </div>
+  </td>
+ {% endif %}
+    {% endfor %}
+  {% endfor %}
+  </tr>
+</table>
+</div> 
+  {%- endpaginate-%}
+
+</div></div>
+  
+  </div>
+
+</div>
+
+
+  {% section 'compare-section' %}
+<style>
+/*  .product_compare_show {
+   display :none;
+ }
+  .product_compare_productsss{
+display:none;
+} */
+
+
+  
+</style>
