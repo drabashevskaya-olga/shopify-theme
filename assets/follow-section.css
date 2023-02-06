@@ -1,0 +1,116 @@
+.follow-wapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 200px;
+}
+.follow-title h2 {
+    margin: 0px;
+    font-size: 56px;
+    line-height: 100%;
+}
+.follow-link ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0px;
+    padding-left: 0px;
+}
+.follow-link .read-more-btn {
+    margin-top: 0px;
+    margin-right: 40px;
+}
+.follow-link .follow-icon {
+    width: 54px;
+    height: 54px;
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border-radius: 50px;
+}
+.follow-link ul li:last-child .follow-icon {
+    margin-right: 0px;
+}
+.follow-data-title {
+    width: 79%;
+    max-width: 1050px;
+}
+.follow-data-title h2 span {
+    color: #2ecc87;
+    font-style: italic;
+}
+.follow-data-title h2 {
+    font-size: 50px;
+    line-height: 56px;
+    margin: 0px;
+}
+.follow-section {
+    margin: 200px 0px;
+}
+
+@media only screen and (max-width: 767px) {
+  .follow-wapper {
+    display: block;
+    margin-bottom: 40px;
+  }
+  .follow-title {
+    margin-bottom: 35px;
+  }
+  .follow-link ul {
+    flex-wrap: wrap;
+  }
+  .follow-link ul li:first-child {
+    width: 100%;
+    order: 5;
+  }
+  .follow-link ul li:first-child a {
+    margin-bottom: 0px;
+    margin-top: 40px;
+  }
+  .follow-link .read-more-btn {
+    width: 100%;
+    text-align: center;
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+  .follow-section{
+  	margin:50px 0px;
+  }
+  .follow-data-title h2 {
+    font-size: 35px;
+    line-height: 42px;
+  }
+  .follow-data-title {
+    width: 100%;
+  }
+  .product-grid-warpper {
+    display: block !important;
+  }
+  .main-title-warpper {
+    margin-bottom: 40px !important;
+  }
+  .products-grid-image img {
+    display: block;
+    width: 100%;
+  }
+  .product-grid-warpper .products-grid-item {
+    margin-right: 0 !important;
+    margin-bottom: 30px;
+  }
+  .product-grid-warpper .products-grid-item:last-child {
+    margin-bottom: 0px;
+  }
+  .main-product-section .main-product-warpper {
+    margin-bottom: 50px !important;
+  }
+  .main-title-warpper h2 {
+    font-size: 35px !important;
+  }
+  .main-product-section {
+    margin-bottom: 60px !important;
+  }
+}
