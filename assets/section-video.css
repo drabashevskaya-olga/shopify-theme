@@ -1,0 +1,242 @@
+.video-wapper-data {
+    display: flex;
+}
+.video-wapper-item1 {
+  width: 65%;
+  margin-right: 30px;
+}
+.video-banner-image {
+    position: relative;
+}
+.video-banner-image img {
+    width: 100%;
+    height: auto;
+}
+.video-icon-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-icon-ui img {
+    width: auto;
+}
+.video-wapper-item2 {
+  width: 35%;
+}
+
+.overscroll-support {
+  height: 100%;
+  max-height: 558px;
+  overflow-x: hidden;
+  margin-bottom: 38px;
+}
+/* width */
+.overscroll-support::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.overscroll-support::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #dadada; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.overscroll-support::-webkit-scrollbar-thumb {
+  background: #2ECC87; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.overscroll-support::-webkit-scrollbar-thumb:hover {
+  background: #2ECC87; 
+}
+
+
+
+
+.duration-total h6 {
+    font-size: 18px;
+    color: #fff;
+    margin: 0px;
+}
+.duration-total {
+    position: absolute;
+    bottom: 30px;
+    right: 53px;
+}
+
+/* content-section css start */
+.custom-text-section {
+    margin: 200px 0px;
+}
+.custom-text-ui {
+    width: 100%;
+    max-width: 730px;
+}
+.custom-text-ui h2 {
+    font-size: 50px;
+    line-height: 56px;
+    margin: 0px;
+}
+.custom-text-ui h2 span {
+    color: #2ecc87;
+    font-style: italic;
+}
+.main-title-video h5 {
+    font-size: 22px;
+    line-height: 28.8px;
+    margin: 16px 0 0;
+}
+.video-main-heading {
+    max-width: 670px;
+    width: 100%;
+}
+.video-main-heading h2 {
+    font-size: 56px;
+    line-height: 100%;
+    margin: 0 0 60px;
+    text-transform: uppercase;
+}
+.main-title-video {
+    width: 60%;
+    max-width: 515px;
+}
+.main-box-warpper {
+    display: flex;
+  margin-bottom:30px;
+}
+.small-video {
+    width: 100%;
+    max-width: 211px;
+}
+.small-video img {
+    display: block;
+}
+.smail-data {
+    padding-left: 21px;
+}
+.smail-data h4 {
+    margin: 0px 0 21px;
+    font-size: 22px;
+    line-height: 28.8px;
+}
+.smail-data span {
+    display: block;
+    font-size: 18px;
+    line-height: 20px;
+    color: #6E6E73;
+}
+
+
+.main-video-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.main-video-section .video-banner-image {
+    width: 100%;
+    height: auto;
+    max-width: 170px;
+}
+.video-title-data {
+    padding-left: 20px;
+}
+.video-title-data h2 {
+    margin: 0px 0 10px;
+    font-size: 22px;
+    line-height: 28.5px;
+    font-weight: 500;
+}
+.main-video-section .video-banner-image .video-icon-ui img {
+    width: 60px;
+}
+.video-title-data span.video-time {
+    font-size: 18px;
+    line-height: 21.6px;
+    color: #6E6E73;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.all-view-btn {
+    text-align: right;
+}
+.all-view-btn a {
+    font-size: 18px;
+    line-height: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 1px solid #000000;
+    padding: 10px 30px;
+    color: #000000;
+}
+.custom-text-ui p {
+    margin: 20px 0px 0px;
+    font-size: 26px;
+    line-height: 33.8px;
+    color: #6E6E73;
+}
+/* content-section css End */
+
+.page-support .main-title-warpper h2 {
+    max-width: 630px;
+}
+.page-daily-wellness .custom-text-ui {
+    width: 100%;
+    max-width: 640px;
+}
+
+@media only screen and (max-width:767px){
+  .video-main-heading h2 {
+    font-size: 34px;
+    margin: 0 0 40px;
+  }
+  .video-wapper-data{
+  	display:block;
+  }
+  .video-wapper-item1 {
+    width: 100%;
+    margin-right: 0;
+  }
+  .video-wapper-item2 {
+    width: 100%;
+  }
+  .page-support .video-section .video-section__media{
+    padding-bottom: 60%!important;
+  }
+  .main-title-video {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .video-icon-ui img {
+    width: 140px;
+  }
+  .all-view-btn {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .video-title-data h2 {
+    font-size: 18px;
+    line-height: 23.5px;
+  }
+  .custom-text-section{
+  	margin:50px 0px;
+  }
+  .custom-text-ui h2 {
+    font-size: 28px;
+    line-height: 33px;
+  }
+  .page-daily-wellness .video-section .video-section__media {
+    padding-bottom: 60%!important;
+  }
+  #shopify-section-template--14192319561814__163758091151491c24 {
+    margin-top: 5rem;
+  }
+}

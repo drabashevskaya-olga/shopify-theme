@@ -1,0 +1,109 @@
+.main-box-simple-testimonial {
+  display: flex;
+  align-items: center;
+}
+.simple-image-testimonial-face {
+    width: 50%;
+    text-align: center;
+}
+.simple-data-testimonial {
+    width: 50%;
+}
+.simple-data-testimonial h5, .simple-data-testimonial h5 p{
+    color: #6E6E73;
+    font-size: 22px;
+    line-height: 28px;
+    margin: 0px;
+    font-weight: 500;
+}
+.simple-data-testimonial h5 strong, .simple-data-testimonial h5 p strong{
+    color: #000000;
+    font-weight: bold;
+}
+.simple-data-testimonial h2 {
+    font-size: 38px;
+    line-height: 42.5px;
+    margin: 12px 0px 20px;
+}
+.simple-data-testimonial p {
+    color: #6E6E73;
+    font-size: 22px;
+    line-height: 33px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+.simple-data-testimonial .read-more-btn {
+    margin-top: 0px;
+}
+
+.page-support .main-product-section {
+    margin: 200px 0px;
+}
+.simple-image-testimonial-face img {
+  padding-right: 36px;
+  display: block;
+  margin: 0 auto;
+}
+.testimonial-simple-section {
+    margin: 200px 0px;
+}
+
+@media only screen and (max-width:767px){
+  .testimonial-simple-section{
+  	margin:50px 0px;
+  }
+  .main-box-simple-testimonial{
+  	display:block;
+  }
+  .simple-image-testimonial-face img {
+    width: 100%;
+    height: auto;
+  }
+
+  .simple-image-testimonial-face, .simple-data-testimonial {
+    width: 100%;
+    height: auto;
+  }
+  .simple-data-testimonial {
+    padding-top: 30px;
+  }
+  .simple-data-testimonial h2 {
+    font-size: 28px;
+    line-height: 33.5px;
+  }
+  .simple-data-testimonial p {
+    font-size: 18px;
+    line-height: 23px; 
+  }
+  .page-support .main-product-section{
+  	margin:50px 0px;
+  }
+  .page-support .main-title-warpper h2 {
+    max-width: 630px;
+    font-size: 32px;
+  }
+  .main-product-section .main-title-warpper{
+    margin-bottom:40px;
+  }
+  .products-grid-image img {
+    width: 100%;
+    height: auto;
+  }
+  .main-product-section .product-grid-warpper {
+    display: block;
+  }
+  .main-product-section .product-grid-warpper .products-grid-item {
+    margin-right: 0px ;
+    margin-bottom: 30px;
+  }
+  .main-product-section .view-allbutton a.read-more-btn {
+    margin-top: 20px;
+  }
+  .simple-image-testimonial-face img {
+    padding-right: 0px;
+  }
+  .community-video-icon .video-caption span.play-icon img {
+    width: 100px;
+  }
+}
+

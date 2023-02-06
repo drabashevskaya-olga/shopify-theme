@@ -1,0 +1,130 @@
+.main-title-warpper {
+    margin-bottom: 90px;
+}
+
+.main-title-warpper h2 {
+    margin: 0px;
+    font-size: 56px;
+    letter-spacing: -2px;
+    line-height: 100%;
+}
+.product-grid-warpper {
+    display: flex;
+    align-items: flex-start;
+}
+.product-grid-warpper .products-grid-item {
+    margin-right: 20px;
+}
+.products-grid-image img {
+    display: block;
+}
+.products-grid-content h2 {
+    font-size: 36px;
+    margin: 20px 0px;
+    line-height: 36px;
+}
+.products-grid-content p {
+    font-size: 26px;
+    line-height: 33.8px;
+    color: #6E6E73;
+    margin: 0px;
+}
+.product-grid-warpper .products-grid-item a {
+    text-decoration: none;
+    color: #000000;
+}
+.main-product-section .main-product-warpper:last-child {
+    margin-bottom: 0px;
+}
+.main-product-section .main-product-warpper {
+    margin-bottom: 90px;
+}
+.main-product-section {
+    margin-bottom: 200px;
+}
+
+
+/* support start css */
+
+
+.page-support .products-grid-content h2 {
+    font-size: 22px;
+    line-height: 100%;
+    margin: 16px 0 0;
+}
+.page-support .products-grid-content p {
+    font-size: 16px;
+    line-height: 20.8px;
+    margin-top: 4px;
+}
+.page-support .products-grid-content h4 {
+    font-size: 34px;
+    margin: 0;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+
+.page-daily-wellness .custom-text-ui {
+  width: 100%;
+  max-width: 630px;
+}
+
+/* .page-daily-wellness .main-product-section .main-product-warpper:last-child {
+    display: none;
+} */
+.page-about-us .products-grid-content {
+    max-width: 555px;
+}
+
+.page-daily-wellness .products-grid-content h2 {
+    font-size: 22px;
+    line-height: 100%;
+    margin: 16px 0 0;
+}
+.page-daily-wellness .products-grid-content p {
+    font-size: 16px;
+    line-height: 20.8px;
+    margin-top: 4px;
+}
+.page-daily-wellness .products-grid-content h4 {
+    font-size: 34px;
+    margin: 0;
+    font-weight: 500;
+    margin-top: 4px;
+}
+.page-daily-wellness .main-title-warpper h2 {
+    max-width: 685px;
+}
+.page-daily-wellness .main-product-section {
+    margin: 200px 0;
+}
+
+.view-allbutton a.read-more-btn {
+    margin-top: 90px;
+}
+
+
+@media only screen and (max-width: 767px){
+  .page-daily-wellness .main-product-section {
+    margin: 50px 0;
+  }
+  .page-daily-wellness .main-title-warpper h2 {
+    max-width: 630px;
+    font-size: 32px;
+  }
+  .main-title-warpper {
+    margin-bottom: 40px;
+  }
+  .products-grid-image img {
+    width: 100%;
+    height: auto;
+  }
+  .product-grid-warpper {
+    display: block;
+  }
+  .product-grid-warpper .products-grid-item{
+  	margin-right:0px;
+    margin-bottom:30px;
+  }
+}
