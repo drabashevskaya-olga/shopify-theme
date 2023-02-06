@@ -1,0 +1,63 @@
+
+<h1 class="section-tittle h1">
+  <center> {{ section.settings.heading }} </center>
+</h1>
+
+<div class="featured-logo">
+  
+  {% for block in section.blocks %}
+
+   <center>
+		<img src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" />
+  </center>
+  
+  {% endfor %}
+
+</div>
+
+
+
+{% schema %}
+  
+ {
+    "name": "Featured On",
+    "settings": [
+				{
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+				"default": "FEATURED ON"
+              }
+			],
+	"blocks": [
+				{
+				"type" : "image",
+				"name" : "Logo",
+				"settings": [ {
+							"type": "image_picker",
+     						 "id": "logo",
+     						 "label": "Select image"
+							  }
+							]
+				}
+
+			],
+"presets": [
+    {
+      "name": "Featured Logo",
+		"blocks": [
+                      {
+                        "type": "image"
+                      }
+      				]
+      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

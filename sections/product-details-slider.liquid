@@ -1,0 +1,134 @@
+{% comment %}
+
+{%- if product.metafields['athletes-slider'].size > 0 -%}
+
+{%- for slide in product.metafields['athletes-slider'] -%}
+
+{%- assign key = slide | first -%}
+{%- assign description = slide | last -%}
+
+{%- assign image_name = key | split: "." | first | strip -%} 
+{%- assign image_ext = key | split: "." | last | strip -%}
+
+{%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+{%- assign mobileImageName = image_name | append: "-mobile"  | append :"." | append: image_ext -%}
+
+Image: {{mobileImageName | file_url}}<br />
+Description: {{description}} <br />
+
+{%- endfor -%}
+{%- endif -%}
+{% endcomment %}
+
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- if product.metafields['athletes-slider'].size > 0 -%}
+
+<div class="review-data heading_with_button">
+  <div class="page-width">
+    <div class="row-wrapper">
+    <h1 class="section-tittle">{{ section.settings.heading}}</h1>
+    <div class="custom-buttons-wrapper">
+      
+    <a class="button button--secondary custom-button " href="#user-experience">User Experience {% render 'icon-green-play'%}</a>
+    <a class="button button--secondary custom-button " href="#reviews">
+      
+      Read Review
+    
+    </a>
+    </div>
+  </div>
+  </div>
+  </div>
+
+<div class="page-width product-featured-banner product-details-section">
+<div id="Banner-{{ section.id }}" class="home-banner-wrapper carousel" data-flickity='{ "draggable": true, "pageDots": false,"adaptiveHeight": true }'>
+    {%- for slide in product.metafields['athletes-slider'] -%}
+  
+  
+{%- assign key = slide | first -%}
+{%- assign description = slide | last -%}
+
+{%- assign image_name = key | split: "." | first | strip -%} 
+{%- assign image_ext = key | split: "." | last | strip -%}
+
+{%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+{%- assign mobileImageName = image_name | append: "-mobile"  | append :"." | append: image_ext -%}
+  
+  <div class="product-slider-data carousel-cell banner">
+     
+      <div class="banner-item-wrapper">
+        
+         
+        <div class="banner__media media hideMobile">
+          
+           <img
+
+                 src="{{ desktopImageName | file_url }}"
+                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                 alt="{{ desktopImageName.alt | escape }}"
+                 loading="lazy"
+                 width="{{ desktopImageName.width }}"
+                 height="{{ desktopImageName.height }}"
+                 >
+        </div>
+
+        
+        <div class="banner__media media hideDesktop">
+          <img
+
+                 src="{{ mobileImageName | file_url }}"
+                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                 alt="{{ mobileImageName.alt | escape }}"
+                 loading="lazy"
+                 width="{{ mobileImageName.width }}"
+                 height="{{ mobileImageName.height }}"
+                 >
+        </div>
+        
+        
+        <div class="banner__content  page-width">
+          <div class="banner__box">
+            
+            {{description}}
+            
+          </div>
+           <div class="carousel-status">
+   {{ forloop.index }} / {{ product.metafields['athletes-slider'].size }}
+  </div>
+        </div>
+      </div>
+
+    </div>
+ 
+    {% endfor %}
+
+</div>
+   
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.product-details-slider.name",
+  "tag": "section",
+  "class": "spaced-section featured-banner-main",
+  "settings": [
+{
+  "type": "text",
+  "id": "heading",
+  "label": "Heading",
+  "default": "Product Details"
+}
+        
+  ],
+
+  "presets": [
+    {
+      "name": "t:sections.product-details-slider.presets.name"
+      
+    }
+  ]
+}
+{% endschema %}

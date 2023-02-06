@@ -1,0 +1,72 @@
+{{ 'section-say.css' | asset_url | stylesheet_tag }}
+<section class="say-section">
+  <div class="page-width">
+    <div class="say-main-heading">
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="say-data-wapper">
+      {% for block in section.blocks %}
+      <div class="say-data-item" style="width:{{ block.settings.width }}%;">
+        <img src="{{ block.settings.image | img_url: 'master' }}" />
+        {{ block.settings.sub_heading }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "About Say",
+"settings": [
+  {
+  "type": "text",
+  "label": "Heading",
+  "id": "heading"
+  }
+],
+"blocks": [
+{
+"type": "Say_Data",
+"name": "Item Data",
+"settings": [
+{
+"type":"select",
+"id":"width",
+"label":"Column Width",
+"options":[
+{"value":"25","label":"25%"},
+{"value":"33.33","label":"33.33%"},
+{"value":"50","label":"50%"},
+{"value":"100","label":"100%"}
+],
+"default":"50"
+},
+{
+"type": "image_picker",
+"label": "image",
+"id": "image"
+},
+
+{
+"type": "richtext",
+"label": "Sub Heading",
+"id": "sub_heading"
+}
+]
+}
+],
+"presets": [
+{
+"name": "say-about",
+"category": "about"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

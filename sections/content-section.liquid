@@ -1,0 +1,54 @@
+{{ 'about-content.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-content-section">
+  <div class="page-width">
+    <div class="main-heading-title">
+      <h2>{{section.settings.title}}</h2>
+    </div>
+    <div class="custom-data-warrper">
+      <div class="data-item-content">
+        {{section.settings.description_1}}
+      </div>
+      {%- if section.settings.description_2 != blank -%}
+       <div class="data-item-content">
+         {{section.settings.description_2}}
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Content Section",
+    "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "default": "Heading",
+    "label": "Heading"
+    }, 
+    {
+    "type": "richtext",
+    "id": "description_1",
+    "label": "Description 1"
+    },   
+    {
+    "type": "richtext",
+    "id": "description_2",
+    "label": "Description 2"
+    }
+],
+  "presets": [
+  {
+  "name": "Content Section",
+  "category": "Content"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,273 @@
+<section class="main_banner_section">
+        <div class="container">
+            <div class="inner_conatiner">
+                <div class="main_banner">
+                  {% if section.settings.banner_heading != blank %}
+                    <h2 class="main-sub-heading">{{ section.settings.banner_heading }}</h2>
+                  {% endif %}
+                    <div class="main_banner_inner">
+                        <div class="banner_left">
+                            <div id="sync1" class="owl-carousel owl-theme">
+                              {% for block in section.blocks %}
+                                {% if block.settings.prod_images != blank %}
+                                <div class="item">
+                                    <img src="{{ block.settings.prod_images | img_url:'master' }}" alt="banner" />
+                                </div>
+                                {% endif %}
+                              {% endfor %}
+                            </div>
+                        </div>
+                        <div class="banner_right">
+                            <div class="rev-text-top">
+                              {% if section.settings.prod_review_stars != blank and section.settings.prod_review_stars == 1 %}
+                                <span class="text-span-18">★</span> {% if section.settings.review_text != blank %} {{ section.settings.review_text }} {% endif %}
+                              {% endif %}
+                              {% if section.settings.prod_review_stars != blank and section.settings.prod_review_stars == 2 %}
+                                <span class="text-span-18">★★</span>{% if section.settings.review_text != blank %} {{ section.settings.review_text }} {% endif %}
+                              {% endif %}
+                              {% if section.settings.prod_review_stars != blank and section.settings.prod_review_stars == 3 %}
+                                <span class="text-span-18">★★★</span>{% if section.settings.review_text != blank %} {{ section.settings.review_text }}{% endif %}
+                              {% endif %}
+                              {% if section.settings.prod_review_stars != blank and section.settings.prod_review_stars == 4 %}
+                                <span class="text-span-18">★★★★</span>{% if section.settings.review_text != blank %} {{ section.settings.review_text }} {% endif %}
+                              {% endif %}
+                              {% if section.settings.prod_review_stars != blank and section.settings.prod_review_stars == 5 %}
+                                <span class="text-span-18">★★★★★</span>{% if section.settings.review_text != blank %} {{ section.settings.review_text }}  {% endif %}
+                              {% endif %}
+                            </div>
+                          {% if section.settings.product_subheading != blank %}
+                              <h2 class="product-sub-heading">{{ section.settings.product_subheading }}</h2>
+                          {% endif %}
+                            <ul  class="product-list w-list-unstyled">
+                              {% for block in section.blocks %}
+                                {% if block.settings.list_text != blank %}
+                                <li>
+                                    <div class="list-text">
+                                        <span class="text-span-3">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </span> {{ block.settings.list_text }}
+                                    </div>
+                                </li
+                                {% endif %}    
+                              {% endfor %}
+                            </ul>
+
+                             <div class="desktop_button">
+                            <div class="top-btn-div-desk">
+                            {% if section.settings.desk_button_link != blank or section.settings.desktop_button_text %}
+                                <a href="{{ section.settings.desk_button_link }}" style="background-color:{{ section.settings.button_color }}; color:{{ section.settings.button_text_color }}" class="main-buy-button w-button">{{ section.settings.desktop_button_text }}
+                                </a>
+                            {% endif %}
+                            </div>
+                        </div>
+                              <div class="mobile_button">
+
+                            <div class="top-btn-div-desk">
+                              {% if section.settings.mob_button_link != blank or section.settings.mobile_button_text %}
+                                <a href="{{ section.settings.mob_button_link }}" style="background-color:{{ section.settings.button_color }}; color:{{ section.settings.button_text_color }}" class="main-buy-button w-button">{{ section.settings.mobile_button_text }}
+                                </a>
+                              {% endif %}
+                            </div>
+                        </div>
+                  {% if section.settings.stock_msg != blank %}
+              <div class="custom_heatlp-stock_msg">
+                  <div class="stock-msg_inner"><p>🛒</p> {{ section.settings.stock_msg }}</div>
+                </div>
+                    {% endif %}
+                          {% if section.settings.payment_images != blank %}                     
+                            <div class="cb-div">
+                                <img src="{{ section.settings.payment_images | img_url:'master' }}" width="254" alt="" class="cb-img" />
+                            </div>
+                          {% endif %}
+                            <div class="box">
+                                <a class="button" onclick="$('#popup1').removeClass('hide')" href=" javascript:void(0);">Size Info</a>
+                            </div>
+                          
+                            <div id="popup1" class="overlay hide">
+                              {% if section.settings.pop_image != blank %}
+                                <div class="popup">
+                                    <p class="close" id="close" onclick="myFunction()">&#10006;</p>
+                                    <div class="content">
+                                        <img src="{{ section.settings.pop_image |img_url:'master' }}" alt="popup">
+                                    </div>
+                                </div>
+                              {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-padding-20">
+                        <p class="paragraph-4">
+                          {% if section.settings.review_stars != blank and section.settings.review_stars == 1 %}
+                            <span class="text-span-7">★<br />
+                          {% endif %}
+                          {% if section.settings.review_stars != blank and section.settings.review_stars == 2 %}
+                            <span class="text-span-7">★★<br />
+                          {% endif %}
+                          {% if section.settings.review_stars != blank and section.settings.review_stars == 3 %}
+                            <span class="text-span-7">★★★<br />
+                          {% endif %}
+                          {% if section.settings.review_stars != blank and section.settings.review_stars == 4 %}
+                            <span class="text-span-7">★★★★<br />
+                          {% endif %}
+                          {% if section.settings.review_stars != blank and section.settings.review_stars == 5 %}
+                            <span class="text-span-7">★★★★★<br />
+                          {% endif %}
+                          {% if section.settings.review_para != blank %}
+                            </span>{{ section.settings.review_para }}<span class="text-span-6">
+                              {% if section.settings.author_name != blank %}
+                                <strong class="bold-text-4">{{ section.settings.author_name }}</strong>
+                              {% endif %}
+                            </span>
+                          {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+              
+<script>
+$(document).ready(function(){
+  function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+
+  $("#close").click(function(){
+     var popup = $("#popup1").addClass('hide');
+            var modal = document.getElementById("popup1");
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+               $("#popup1").addClass('hide');
+            }
+          }
+});
+});
+  
+</script>
+{% schema %}
+  {
+    "name": "Main Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "banner_heading",
+        "label": "Heading"
+      },
+            {
+        "type": "richtext",
+        "id": "stock_msg",
+        "label": "Stock Message"
+      },
+      {
+        "type": "range",
+        "id": "prod_review_stars",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "label": "Product Stars",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "review_text",
+        "label": "Stars Text"
+      },
+      {
+        "type": "text",
+        "id": "product_subheading",
+        "label": "Product Subheading"
+      },
+      {
+        "type": "text",
+        "id": "desktop_button_text",
+        "label": "Dektop Button Text"
+      },
+      {
+        "type": "text",
+        "id": "mobile_button_text",
+        "label": "Mobile Button Text"
+      },
+      {
+        "type": "url",
+        "id": "desk_button_link",
+        "label": "Desktop Button Link"
+      },
+      {
+        "type": "url",
+        "id": "mob_button_link",
+        "label": "Mobile Button Link"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button Background Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text Color"
+      },
+      {
+        "type": "image_picker",
+        "id": "payment_images",
+        "label": "Payment Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "pop_image",
+        "label": "Pop Up Image"
+      },
+      {
+        "type": "range",
+        "id": "review_stars",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "label": "Review Stars",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "review_para",
+        "label": "Review Paragraph"
+      },
+      {
+        "type": "text",
+        "id": "author_name",
+        "label": "Author Name"
+      }
+  ],
+  "blocks": [
+     {
+       "name": "Description List",
+       "type": "text",
+       "settings": [
+         {
+           "type": "text",
+           "id": "list_text",
+           "label": "List Text"
+         }
+       ]
+     },
+     {
+       "name": "Images",
+       "type": "image",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "prod_images",
+           "label": "Image"
+         }
+       ]
+     }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

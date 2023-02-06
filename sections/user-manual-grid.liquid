@@ -1,0 +1,140 @@
+<style>
+
+  .page-user-manual .page-width {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .page-user-manual .user-manual-wrapper .user-manual-grid {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  
+ .page-user-manual .user-manual-wrapper .user-manual-grid-inner {
+    box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 13%);
+    margin: 0px 50px 60px 50px;
+    padding: 25px 25px 25px 25px;
+  }
+
+  .page-user-manual .user-manual-wrapper .user-manual-grid .image-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+.page-user-manual .user-manual-wrapper .user-manual-grid .image-wrapper {
+  margin-bottom: 20px;
+}
+
+.page-user-manual .user-manual-wrapper .user-manual-grid .button-wrapper {
+  text-align: center;
+}
+
+.page-user-manual .user-manual-wrapper .user-manual-grid .button-wrapper a.button {
+  text-transform: uppercase;
+  color: #000000;
+  border-radius: 0px 0px 0px 0px;
+  outline: none;
+  border: 3px solid #2fcc88;
+  box-shadow: none;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.page-user-manual .user-manual-wrapper .user-manual-grid .button-wrapper a.button:hover {
+  color: #FFFFFF;
+  background-color: #2fcc88;
+}
+ 
+  @media (max-width:600px)  {
+    .page-user-manual .user-manual-wrapper .user-manual-grid {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+    
+    .page-user-manual .user-manual-wrapper .user-manual-grid-inner {
+      margin: 0px 35px 30px 35px;
+    }
+
+    .page-user-manual .spaced-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+    
+  }
+  
+  
+</style>
+
+
+<div class="user-manual-wrapper">
+<div class="page-width">
+  {% for block in section.blocks %}
+  <div class="user-manual-grid">
+    <div class="user-manual-grid-inner">
+    <div class="image-wrapper">
+    <img src="{{ block.settings.product_image | img_url: 'master' }}" alt="" loading="lazy">
+     </div>
+    <div class="button-wrapper"> 
+      <a href="{{ block.settings.button_link }}" class="button button--secondary">{{ block.settings.button_label }}</a>
+    </div>
+      </div>
+  </div>
+{% endfor %}
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "User Manual Grid",
+    "settings": [
+
+
+				],
+"blocks" : [{
+			"name": "Grid",
+			"type" : "text",
+			"settings": [ 
+                        {
+                        "type": "image_picker",
+                        "id": "product_image",
+                        "label": "Select Product Image"
+                        },
+                        {
+                        "type": "text",
+                        "id": "button_label",
+                        "label": "Button Text"
+                        },
+                        {
+                        "type": "url",
+                        "id": "button_link",
+                        "label": "Button link"
+                        }
+
+				]
+}
+			],
+"presets": [{
+        "name": "User manual Grid"
+      }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,65 @@
+{{ 'about-content.css' | asset_url | stylesheet_tag }}
+<section class="grid-section">
+  <div class="page-width">
+    <div class="main-grid-box">
+       {% for block in section.blocks %}
+      <div class="about-grid-wapper">
+        <div class="grid-image-data">
+        	 <img src="{{ block.settings.image | img_url: 'master' }}" />
+        </div>
+        <div class="grid-content-data">
+          {% if block.settings.heading != blank %}
+          <h2>{{ block.settings.heading }}</h2>
+          {% endif %}
+          
+          {{ block.settings.description }}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Grid Data Section",
+    "settings": [],
+"blocks": [
+{
+"type": "Grid_Data",
+"name": "Grid Item",
+"settings": [
+{
+"type": "image_picker",
+"label": "image",
+"id": "image"
+},
+{
+"type": "text",
+"label": "Heading",
+"id": "heading"
+},
+{
+"type": "richtext",
+"label": "Description",
+"id": "description"
+}
+]
+}
+],
+
+    "presets": [
+    {
+    "name": "Grid Content",
+    "category": "Grid"
+    }
+    ]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,52 @@
+{{ 'main-support.css' | asset_url | stylesheet_tag }}
+
+<section class="support-section">
+  <div class="page-width">
+    <div class="support-nabber-data">
+    	<img src="{{ section.settings.image | img_url: 'master' }}" />
+      <div class="banner-overlap-data">
+        <div class="banner-content">
+          <h2>{{section.settings.heading}}</h2>
+          {{section.settings.sub_heading}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Main Banner Text",
+    "settings": [
+  {
+  "type": "image_picker",
+  "label": "Banner image",
+  "id": "image"
+  },
+  {
+  "type": "text",
+  "label": "Heading",
+  "id": "heading"
+  },
+  {
+  "type": "richtext",
+  "label": "Description",
+  "id": "sub_heading"
+  }
+
+],
+  "presets": [
+  {
+  "name": "Main Banner Text",
+  "category": "image"
+  }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

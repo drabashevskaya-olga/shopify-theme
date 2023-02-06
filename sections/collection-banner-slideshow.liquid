@@ -1,0 +1,266 @@
+{% comment %}
+
+{%- if collection.metafields['collection-slider'].size > 0 -%}
+
+{%- for slide in collection.metafields['collection-slider'] -%}
+
+{%- assign key = slide | first -%}
+{%- assign description = slide | last -%}
+
+{%- assign image_name = key | split: "." | first | strip -%} 
+{%- assign image_ext = key | split: "." | last | strip -%}
+
+{%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+{%- assign mobileImageName = image_name | append: "-mobile"  | append :"." | append: image_ext -%}
+
+Image: {{ mobileImageName | file_url}}<br />
+Description: {{description}} <br />
+
+{%- endfor -%}
+{%- endif -%}
+{% endcomment %}
+
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- if collection.metafields['collection-slider'].size > 0 -%}
+<div class="page-width product-featured-banner abcd collection-featured-banner from_metafield">
+  <div id="Banner-{{ section.id }}" class="home-banner-wrapper abcd carousel" data-flickity='{ "draggable": true, "pageDots": true }'>
+    {%- for slide in collection.metafields['collection-slider'] -%}
+
+
+    {%- assign key = slide | first -%}
+    {%- assign description = slide | last -%}
+
+    {%- assign image_name = key | split: "." | first | strip -%} 
+    {%- assign image_ext = key | split: "." | last | strip -%}
+
+    {%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+    {%- assign mobileImageName = image_name | append: "-mobile"  | append :"." | append: image_ext -%}
+
+    <div class="carousel-cell banner">
+
+      <div class="banner-item-wrapper">
+
+
+        <div class="banner__media media hideMobile">
+
+          {% if desktopImageName != blank %}
+          <img
+
+               src="{{ desktopImageName | file_url }}"
+               sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+               alt="{{ desktopImageName.alt | escape }}"
+               loading="lazy"
+               width="{{ desktopImageName.width }}"
+               height="{{ desktopImageName.height }}"
+               >
+        </div>
+
+      </div>
+      {% endif %}
+
+      <div class="banner__media media hideDesktop">
+        <img
+
+             src="{{ mobileImageName | file_url }}"
+             sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+             alt="{{ mobileImageName.alt | escape }}"
+             loading="lazy"
+             width="{{ mobileImageName.width }}"
+             height="{{ mobileImageName.height }}"
+             >
+      </div>
+
+
+      <div class="banner-data banner__content  page-width ">
+        <div class="banner__box">
+
+          {{description}}
+
+        </div>
+
+      </div>
+    </div>
+{% endfor %}
+  </div>
+  
+
+</div>
+
+{%- else -%}
+
+
+
+<!-- <div class="page-width product-featured-banner collection-featured-banner from_customsettings {{collection.id}}"> -->
+  <div id="Banner-{{ section.id }}" class="page-width home-banner-wrapper abcd carousel" data-flickity='{ "draggable": true, "pageDots": true,"adaptiveHeight": true }'>
+
+
+{%- for block in section.blocks -%}
+
+    <div class="carousel-cell banner {% if block.settings.show_text_top == true %} show_text_top {% endif %}">
+{% if block.settings.slide_link != blank %}<a href="{{ block.settings.slide_link }}" style="z-index:9;"> {% endif %}
+      <div class="banner-item-wrapper hideMobile">
+
+
+       <div class="banner__media media ">
+
+
+          <img
+
+               src="{{ block.settings.image | img_url : 'master' }}"
+               sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+               alt="{{ block.settings.image.alt | escape }}"
+               loading="lazy"
+               width="{{ block.settings.image.width }}"
+               height="{{ block.settings.image.height }}"
+               >
+        </div>
+
+      </div>
+{% if block.settings.slide_link != blank %}
+  <style>
+    .banner:after {
+    content: "";
+   display:none;
+}
+  </style>
+  {% endif %}
+      <div class="banner__media media hideDesktop">
+       <img
+
+             src="{{ block.settings.image_mobile | img_url : 'master' }}"
+             sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+             alt="{{ block.settings.image_mobile.alt | escape }}"
+             loading="lazy"
+             width="{{ block.settings.image_mobile.width }}"
+             height="{{ block.settings.image_mobile.height }}"
+             >
+
+      </div>
+  {% if block.settings.product_logo != blank or block.settings.heading != blank or block.settings.buttun_text != blank %}
+      <div class="banner-data banner__content  page-width ">
+        <div class="banner__box ">
+        {% if block.settings.product_logo != blank %}
+		<img src="{{ block.settings.product_logo | img_url : '100x' }}">
+        {% endif %}
+          {%comment%}
+          <h3>{{ block.settings.small_heading }}</h3>
+          {%endcomment%}
+          <h2>{{ block.settings.heading }}</h2>
+  {% if  block.settings.buttun_text != blank %}
+          <p><a href="{{ block.settings.button_link }}">{{ block.settings.buttun_text }}</a></p>
+    {% endif %}
+
+        </div>
+
+      </div>
+    {% endif %}
+ {% if block.settings.slide_link != blank %} </a>{% endif %}
+    </div>
+
+    {% endfor %}
+    
+  </div>
+
+<!-- </div> -->
+
+
+
+
+
+
+
+{%- endif -%}
+
+
+
+
+
+{% schema %}
+{
+"name": "t:sections.collection-banner-slideshow.name",
+"tag": "section",
+"class": "spaced-section spaced-section--full-width",
+"settings": [
+
+
+
+],
+"blocks": [
+        {
+        "type": "collection_all_banner",
+        "name": "collection_all_banner",
+        "settings": [
+        {
+        "type": "checkbox",
+        "id": "show_text_top",
+        "label": "Check To make Text Position at Top in Mobile View ",
+        "default": false
+        },
+		{
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop Image"
+        },
+        {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile Image",
+		"info": "Upload vertical size image with 900x1200 (Width x Height) dimension."
+        },
+        {
+        "type": "image_picker",
+        "id": "product_logo",
+        "label": "Product Logo Image"
+        },
+        {
+
+        "type": "text",
+
+        "id": "heading",
+
+        "label": "Heading",
+
+        "default": "Quick links"
+        },
+                  {
+
+        "type": "text",
+        "id": "buttun_text",
+        "label": "Button Text",
+        "default": "discover more"
+        },
+        {
+
+        "type": "url",
+
+        "id": "button_link",
+
+        "label": "Button Link"
+        },
+   {
+        "type": "url",
+        "id": "slide_link",
+        "label": "Slide Link"
+        }
+
+]
+}
+
+],
+"presets": [
+{
+"name": "t:sections.collection-banner-slideshow.presets.name"
+
+}
+]
+}
+{% endschema %}
+{% comment %}
+<script>
+$(document).ready(function() {
+  $(".carousel-cell").addClass("pageloaded");
+});
+
+</script>
+{% endcomment %}

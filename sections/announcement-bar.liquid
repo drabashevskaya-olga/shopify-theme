@@ -1,0 +1,821 @@
+<style>
+  .announcement_popup {
+  position: absolute;
+  background: #fff;
+}
+  span.desktop-close.close_icon {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+}
+  div#announcement-bar .announcement-bar__message {
+  /* 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding-left:0;
+  padding-right:0;
+}
+p.announcement-bar__message a {
+  color: inherit;
+  cursor: pointer;
+}
+div#announcement-bar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  background-color: #2ECC87;
+}
+  div#announcement-bar svg.icon.icon-close-small {
+  position: relative;
+  top: -2px;
+
+}
+div#announcement-bar .page-width {
+    position: relative;
+}
+/***** ANNOUNCEMENT BAR css starts ********/
+div#announcement-bar .page-width {
+  align-items: center;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image span svg {
+  width: 25px;
+  height: auto;
+  display: block;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text span.icon-small .pay_icon img.payment {
+  WIDTH: 62PX;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text .col_custom.span-1-of-3:not(:last-child) {
+  margin-bottom: 20px;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text .row_custom {
+  margin-top: 20px;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text svg {
+  width: 50px !important;
+  height: auto !important;
+  display: block;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text span.icon-small {
+  display: flex;
+  flex-wrap: wrap;
+}
+.announcment_bar {
+  flex-wrap: nowrap;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text span.icon-small h4 {
+  width: 100%;
+  margin: 0 0 10px 0;
+  font-size:15px;
+  color:#000;
+  font-weight: 700;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text span.icon-small .pay_icon {
+  margin-right: 7.5px;
+  margin-bottom:6px;
+}
+div#announcement-bar .announcment_bar_new svg {
+  display: block;
+  width: 25px;
+  height: 22px;
+}
+div#announcement-bar {
+  padding: 0px 0;
+}
+div#announcement-bar .image_svg_text_inner {
+    padding: 3px 0;
+}
+div#announcement-bar span.close_icon a {
+  display: flex;
+  align-items: center;
+}
+div#announcement-bar .page-width .image_svg_text p.announcement-bar__message.h5 {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-style: normal !important;
+}
+div#announcement-bar .page-width  .image_svg_text {
+  align-items: center;
+}
+div#announcement-bar .page-width .image_svg_text span {
+  margin-right: 10px;
+}
+div#announcement-bar .page-width .image_svg_text p.announcement-bar__message.h5 {
+  text-align: left;
+}
+div#announcement-bar .page-width .image_svg_text {
+  align-items: center;
+}
+.announcment_bar_new {
+  cursor: pointer;
+}
+.announcement_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000047;
+  z-index: 9;
+}
+div#announcement-bar svg.icon.icon-close-small {
+  position: relative;
+  display: block;
+  top: -7px;
+}
+.page_announce .slick-slide {
+    margin: 0;
+}
+.announcement_popup .announcement_popup_inner {
+  position: absolute;
+  background: #fff;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2rem;
+  border-radius: 25px;
+  max-width: 400px;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_close {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  cursor:pointer;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_close svg.icon path {
+  fill: #fff;
+}
+/* div#announcement-bar .announcment_bar_new svg path {
+stroke: #fff;
+} */
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image svg path {
+  stroke: #2ecc87;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg {
+  display: flex;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image {
+  width: 60px;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text {
+  width: calc(100% - 60px);
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p {
+  margin: 0;
+}
+.announcement_popup .announcement_popup_inner .row_custom h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image span {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #2ecc87;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p.popup_heading {
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color:#000;
+}
+div#announcement-bar span.close_icon svg.icon.icon-close-small {
+  top: 0;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p.popup_description span {
+    color: #2ecc87;
+}
+.announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p.popup_description {
+  font-size: 12px;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  line-height: 18px;
+  color:#000;
+      font-weight: 500;
+}
+  .min_top{position: relative; width:100%;  -webkit-transition: all 0.4s ease; transition: all 0.4s ease; }
+  .min_top.sticky { width: 100%; z-index:999; position: fixed; left:0; opacity:1; top:0;}
+  .announcement-bar__message {
+    background-color : #2ECC87;
+    color : #FFFFFF;
+  }
+  div#announcement-bar span.close_icon {
+   
+  }
+  div#announcement-bar .announcement-bar__message {
+    /* 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding-left:0;
+    padding-right:0;
+    text-align: center;
+    padding: 1rem 0rem;
+    margin: 0;
+    position: relative;
+  }
+  div#announcement-bar .announcement-bar__message span.close_icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  div#announcement-bar .announcement-bar__message span.close_icon a {
+    display: flex;
+  }
+
+  p.announcement-bar__message a {
+    color: inherit;
+    cursor: pointer;
+  }
+  div#announcement-bar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    background-color: #2ECC87;
+    position: relative;
+  }
+  .header__menu-item {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+  }
+  div#announcement-bar svg.icon.icon-close-small {
+    position: relative;
+  }
+
+  div#announcement-bar .page-width {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+  }
+  div#announcement-bar .page-width  .image_svg_text {
+    display: flex;
+  }
+@media screen and ( min-width: 990px ) {
+    .announcement_popup.mobile {
+    display: none !important;
+  }
+  div#announcement-bar .announcment_bar_new:last-child .announcement_popup .announcement_popup_inner {
+    left: unset;
+    right: 0;
+  }
+  div#announcement-bar .image_svg_text_inner {
+    position: relative;
+  }
+  .announcement_popup .announcement_popup_inner {
+    top: 100%;
+    left: 0;
+    transform: none !important;
+    max-width: 410px;
+    width: 410px;
+    margin-top: 10px;
+  }
+  .announcment_bar_new:nth-child(4) .announcement_popup_inner {
+    left: -40%;
+  }
+  .announcement_popup:before {
+    content: '';
+    position: fixed;
+    background: #00000061;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  .announcement_popup {
+    position: relative !important;
+  }
+    body.current_opend_popup_cls {
+    overflow: hidden;
+  }
+}
+     @media(min-width:990px)
+  {
+  div#announcement-bar span.mobile-close.close_icon {
+    display: none;
+}
+  }
+  @media screen and (max-width: 991px) {
+    div#announcement-bar .page-width {
+    flex-wrap: wrap;
+  }
+  div#announcement-bar .announcment_bar_new svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  div#announcement-bar .page-width .image_svg_text p.announcement-bar__message.h5 {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 11px;
+  }
+          div#announcement-bar .page-width .image_svg_text {
+    justify-content: center;
+  }
+  }
+
+  
+  @media(max-width:989px)
+  {
+      .announcement_popup.desktop {
+    display: none !important;
+  }
+  div#announcement-bar span.close_icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+    
+    div#announcement-bar .page-width {opacity: 0;visibility: hidden;transition: 0.25s ease-out; display:flex; flex-wrap: nowrap;}
+
+    div#announcement-bar .page-width.slick-initialized.slick-slider {opacity: 1;visibility: visible; display:block;}
+  }
+  @media screen and (max-width: 768px) {
+    .announcement_popup .announcement_popup_inner {
+    padding: 1.5rem;
+}
+   .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image span svg {
+    width: 18px;
+
+  }
+ 
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text {
+    width: calc(100% - 40px);
+  }
+  .announcement_popup .announcement_popup_inner {
+    width: 400px;
+    
+    max-width: 85%;
+  }
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p.popup_heading {
+    font-size: 12px;
+    line-height: 18px;
+}
+  .announcement_popup[data-str="Free Shipping"] .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image span svg {
+    width: 23px;
+}
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text p.popup_description {
+    font-size: 11px;
+    font-style: italic;
+}
+  }
+  @media(max-width:576px)
+  {
+    div#announcement-bar .page-width {
+      padding: 0 1rem;
+    }
+    div#announcement-bar .announcement-bar__message {
+      font-size: 14px;
+    }
+    div#announcement-bar span.close_icon {
+      right: 5px ;
+    }
+.announcement_popup .announcement_popup_inner {
+    max-width: 80%;
+    width: 80%;
+  }
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text span.icon-small .pay_icon img.payment {
+    WIDTH: 60PX;
+  }
+  }
+  @media screen and ( max-width:420px ) {
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_image span svg {
+    width: 20px;
+  }
+  
+  .announcement_popup .announcement_popup_inner {
+    padding: 1.5rem;
+  }
+ 
+  .announcement_popup .announcement_popup_inner .announcement_popup_msg .announcement_popup_msg_text {
+    width: calc(100% - 45px);
+  }
+}
+  
+</style>
+
+
+<div id="announcement-bar" class="min_top announcement-bar color-{{ block.settings.color_scheme }}" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+  <div class="page-width">
+    {%- for block in section.blocks -%}
+    <div class="announcment_bar_new">
+      <div class= "image_svg_text_inner">
+        <div class= "image_svg_text" data_target="#target_{{forloop.index0}}" data-getr="{{ block.settings.text  }}">
+          {%- if block.settings.icon_image_svg != blank -%}
+          <span>{{ block.settings.icon_image_svg }}</span>
+          {%- endif -%}
+          <p class="announcement-bar__message h5">
+            {{ block.settings.text  }}
+           {% comment %} {% render 'icon-arrow' %} {% endcomment %}
+          </p>
+        </div>
+         
+        <div class="announcement_popup desktop" id="target_{{forloop.index0}}_desktop" data-str="{{ block.settings.text  }}" style="display:none;">
+           <div class="announcement_popup_inner">
+          <div class="announcement_popup_close">
+            <svg width="24" height="24" class="icon icon-close-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="black"/></path>
+            </svg>
+          </div>
+          <div class="announcement_popup_msg">
+            {% if block.settings.icon_popup_svg != blank %}
+            <div class="announcement_popup_msg_image">
+              <span>{{ block.settings.icon_popup_svg }} </span>
+            </div>
+            {% endif %}
+            {% if block.settings.popup_heading != blank %}
+            <div class="announcement_popup_msg_text">
+              <p class="popup_heading">
+                {{ block.settings.popup_heading }}
+              </p>
+              {%if block.settings.popup_description != blank %}
+              <p class="popup_description">
+                {{ block.settings.popup_description }}
+              </p>
+              {% endif %}
+              {%if block.settings.payment_title != blank or block.settings.icon1 != blank or block.settings.icon2 != blank or block.settings.icon3 != blank or block.settings.financial_title != blank or block.settings.financeicon1 != blank or block.settings.financeicon2 != blank or block.settings.financeicon3 != blank or block.settings.financeicon4 != blank %}             
+              <div class="row_custum">
+                {%if block.settings.payment_title != blank or block.settings.icon1 != blank or block.settings.icon2 != blank or block.settings.icon3 != blank%}
+                <div class="col_custom span-1-of-3">
+                  <span class="icon-small">
+                    {%if block.settings.payment_title != blank %}
+                    <h4>{{block.settings.payment_title}}</h4>
+                    {% endif %}
+                    {%if block.settings.icon1 != blank %}
+                    <div class="pay_icon">{{block.settings.icon1}}</div>
+                    {% endif %}
+
+                    {%if block.settings.icon2 != blank %}
+                    <div class="pay_icon">{{block.settings.icon2}}</div>
+                    {% endif %}
+                    {%if block.settings.icon3 != blank %}
+                    <div class="pay_icon">{{block.settings.icon3}}</div>
+                    {% endif %}
+
+                  </span>
+
+                </div>
+                {% endif %}
+                {%if block.settings.financial_title != blank or block.settings.financeicon1 != blank or block.settings.financeicon2 != blank or block.settings.financeicon3 != blank or block.settings.financeicon4 != blank%}
+                <div class="col_custom span-1-of-3">
+                  <span class="icon-small">
+                    {%if block.settings.financial_title != blank %}
+                    <h4>{{block.settings.financial_title}}</h4>
+                    {% endif %}
+                    {%if block.settings.financeicon1 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon1}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon2 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon2}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon3 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon3}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon4 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon4}}</div>
+                    {% endif %}
+                  </span>
+                </div> 
+                {% endif %}
+              </div>
+              {% endif %}            
+
+              
+              
+            </div>
+            {% endif %}
+          </div>
+              </div></div>
+        
+              </div> 
+              </div>
+
+    {%- endfor -%}
+
+    {%if settings.enable_or_diable_counter == true %}
+    {%assign data = settings.start_month |append:' ' |append:settings.start_day | append:',' | append:settings.start_year %}
+    {% assign year =  settings.start_year | times : 1%}
+    {% assign month =  settings.start_month | times :1 | minus : 1%}
+    {% assign day =  settings.start_day | times :1 %}
+    {% include 'countdown-timer', 
+   		   title: {{settings.offer_text}}, 
+    end_date: {{data}},
+    year : {{year}},
+    month:{{month}},
+    day:{{day}}
+    %} 
+    {%endif%}
+  </div>
+   <span style="float:right" class="desktop-close close_icon">
+    {% render 'icon-close-small' %}
+  </span>
+    {%- for block in section.blocks -%}
+          <div class="announcement_popup mobile" id="target_{{forloop.index0}}_mobile" data-str="{{ block.settings.text  }}" style="display:none;">
+           <div class="announcement_popup_inner">
+          <div class="announcement_popup_close">
+            <svg width="24" height="24" class="icon icon-close-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="black"/>
+            </svg>
+          </div>
+          <div class="announcement_popup_msg">
+            {% if block.settings.icon_popup_svg != blank %}
+            <div class="announcement_popup_msg_image">
+              <span>{{ block.settings.icon_popup_svg }} </span>
+            </div>
+            {% endif %}
+            {% if block.settings.popup_heading != blank %}
+            <div class="announcement_popup_msg_text">
+              <p class="popup_heading">
+                {{ block.settings.popup_heading }}
+              </p>
+              {%if block.settings.popup_description != blank %}
+              <p class="popup_description">
+                {{ block.settings.popup_description }}
+              </p>
+              {% endif %}
+              {%if block.settings.payment_title != blank or block.settings.icon1 != blank or block.settings.icon2 != blank or block.settings.icon3 != blank or block.settings.financial_title != blank or block.settings.financeicon1 != blank or block.settings.financeicon2 != blank or block.settings.financeicon3 != blank or block.settings.financeicon4 != blank %}             
+              <div class="row_custom">
+                {%if block.settings.payment_title != blank or block.settings.icon1 != blank or block.settings.icon2 != blank or block.settings.icon3 != blank%}
+                <div class="col_custom span-1-of-3">
+                  <span class="icon-small">
+                    {%if block.settings.payment_title != blank %}
+                    <h4>{{block.settings.payment_title}}</h4>
+                    {% endif %}
+                    {%if block.settings.icon1 != blank %}
+                    <div class="pay_icon">{{block.settings.icon1}}</div>
+                    {% endif %}
+
+                    {%if block.settings.icon2 != blank %}
+                    <div class="pay_icon">{{block.settings.icon2}}</div>
+                    {% endif %}
+                    {%if block.settings.icon3 != blank %}
+                    <div class="pay_icon">{{block.settings.icon3}}</div>
+                    {% endif %}
+
+                  </span>
+
+                </div>
+                {% endif %}
+                {%if block.settings.financial_title != blank or block.settings.financeicon1 != blank or block.settings.financeicon2 != blank or block.settings.financeicon3 != blank or block.settings.financeicon4 != blank%}
+                <div class="col_custom span-1-of-3">
+                  <span class="icon-small">
+                    {%if block.settings.financial_title != blank %}
+                    <h4>{{block.settings.financial_title}}</h4>
+                    {% endif %}
+                    {%if block.settings.financeicon1 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon1}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon2 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon2}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon3 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon3}}</div>
+                    {% endif %}
+                    {%if block.settings.financeicon4 != blank %}
+                    <div class="pay_icon">{{block.settings.financeicon4}}</div>
+                    {% endif %}
+                  </span>
+                </div> 
+                {% endif %}
+              </div>
+              {% endif %}            
+
+              
+              
+            </div>
+            {% endif %}
+          </div>
+        </div></div>
+   {%- endfor -%}
+
+  <span style="float:right" class="mobile-close close_icon">
+    {% render 'icon-close-small' %}
+  </span>
+
+</div>
+
+<script>
+  //sticky header start
+  $(document).ready(function() {
+    $('.min_top').removeClass("sticky");
+    //PopUp MSG
+    $(document).on('click', '.announcement_popup_close', function () {
+      $(".announcement_popup").hide();
+      $('body').removeClass('current_opend_popup_cls');
+    });
+    
+    
+      $(window).on("load resize scroll",function(e){
+      if ($(window).width() < 990 ) {
+        $(document).on('click', '.image_svg_text', function () {
+          $(".announcement_popup.mobile").css('display','none');
+          var data_target = $(this).attr('data_target');
+          $(data_target+'_mobile').css('display','block');
+
+        });
+        
+        $('#announcement-bar>.page-width').slick({
+          slidesToShow: 1,
+          autoplay: true,
+          dots: false,
+          slidesToScroll: 1,
+          arrows: true,
+          prevArrow: '<div class="slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+          nextArrow: '<div class="slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>'
+        });
+      }else{
+        $(document).on('click', '.image_svg_text', function () {
+          $(".announcement_popup.desktop").css('display','none');
+          var data_target = $(this).attr('data_target');
+         
+          $(data_target+'_desktop').css('display','block');
+          $('body').addClass('current_opend_popup_cls');
+
+        });
+        $('#announcement-bar>.page-width').slick('unslick');
+        
+      }
+    });
+  });
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 1){  
+      $('.min_top').addClass("sticky");
+    }
+    else{
+      $('.min_top').removeClass("sticky");
+    }
+  });
+</script>
+
+
+{% schema %}
+{
+"name": "t:sections.announcement-bar.name",
+"max_blocks": 12,
+"blocks": [
+{
+"type": "announcement",
+"name": "t:sections.announcement-bar.blocks.announcement.name",
+"settings": [
+{
+"type": "header",
+"content": "Announcement Bar Image and Text"
+},
+{
+"type": "text",
+"id": "text",
+"default": "Welcome to our store",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+},
+{
+"type": "textarea",
+"id": "icon_image_svg",
+"label": "Icon Image"
+},
+{
+"type": "select",
+"id": "color_scheme",
+"options": [
+{
+"value": "background-1",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__1.label"
+},
+{
+"value": "background-2",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__2.label"
+},
+{
+"value": "inverse",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__3.label"
+},
+{
+"value": "accent-1",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__4.label"
+},
+{
+"value": "accent-2",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__5.label"
+}
+],
+"default": "accent-1",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.label"
+},
+{
+"type": "url",
+"id": "link",
+"label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+},
+{
+"type": "header",
+"content": "Announcement Bar Pop-Up Text"
+},
+
+{
+"type": "textarea",
+"id": "icon_popup_svg",
+"label": "Icon Image"
+},
+{
+"type": "text",
+"id": "popup_heading",
+"label": "Heading"
+},
+{
+"type": "html",
+"id": "popup_description",
+"label":"Description"        
+},
+{
+			"type":"header",
+			"content":"Payment Heading"
+		},
+		{
+            "type":"text",
+            "id":"payment_title",
+            "label":"Title"
+		},
+		
+		{
+			"type":"textarea",
+			"id":"icon1",
+			"label":"Svg Icon1"
+		},
+		{
+			"type":"textarea",
+			"id":"icon2",
+			"label":"Svg Icon2"
+		},
+		{
+			"type":"textarea",
+			"id":"icon3",
+			"label":"Svg Icon3"
+		},
+		{
+			"type":"header",
+			"content":"Financial Heading"
+		},
+		{
+            "type":"text",
+            "id":"financial_title",
+            "label":"Title"
+		},
+		
+		{
+			"type":"textarea",
+			"id":"financeicon1",
+			"label":"Svg Icon1"
+		},
+		{
+			"type":"textarea",
+			"id":"financeicon2",
+			"label":"Svg Icon2"
+		},
+		{
+			"type":"textarea",
+			"id":"financeicon3",
+			"label":"Svg Icon3"
+		},
+		{
+			"type":"textarea",
+			"id":"financeicon4",
+			"label":"Svg Icon4"
+		}
+]
+}
+],
+"default": {
+"blocks": [
+{
+"type": "announcement"
+}
+]
+}
+}
+{% endschema %}
+
+<script>
+
+  function hideAnnouncementBar() {
+    var x = document.getElementById("announcement-bar");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+</script>

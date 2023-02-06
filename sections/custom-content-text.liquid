@@ -1,0 +1,60 @@
+{{ 'section-video.css' | asset_url | stylesheet_tag }}
+<section class="custom-text-section">
+  <div class="page-width">
+    <div class="custom-text-ui">
+       {%- if section.settings.title != blank -%}
+      <h2>{{ section.settings.title }}</h2>
+     
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+      {{ section.settings.description }}
+     
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+      <a href="{{section.settings.button_url}}" class="read-more-btn">{{section.settings.button_label}} </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Content Section",
+    "settings": [
+  {
+  "type": "text",
+  "id": "title",
+  "default": "Heading",
+  "label": "Title Heading"
+  },
+  {
+  "type": "richtext",
+  "id": "description",
+  "label": "Description"
+  },
+  {
+  "type": "text",
+  "id": "button_label",
+  "label": "Button Label"
+  },
+  {
+  "type": "url",
+  "id": "button_url",
+  "label": "Button url"
+  }
+],
+
+"presets": [
+{
+"name": "Text Section",
+"category": "text"
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

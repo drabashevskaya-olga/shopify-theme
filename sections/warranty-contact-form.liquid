@@ -1,0 +1,26 @@
+{%- include 'warranty-contact-form', section: section -%}
+{% schema %}
+{
+  "name": "Warrenty Contact Form",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+	{
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Warrenty Contact Form"
+    }
+  ]
+}
+{% endschema %}

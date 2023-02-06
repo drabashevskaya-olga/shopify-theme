@@ -1,0 +1,80 @@
+<div class="gallery-slider-wrapper">
+  <div class="page-width">
+    <div class="top-title-wrapper">
+      <h1 class="section-tittle">{{section.settings.heading}}</h1>
+      {% if section.settings.subheading != blank %}
+      <div class="subheading">
+        {{section.settings.subheading}}
+      </div>
+      {% endif %}
+    </div>
+    <div class="gallery-items-wrapper" data-flickity='{ "draggable": false,"pageDots":false }'>
+      {% assign total-slide-count = section.blocks.size %}
+      {% for block in section.blocks %}
+      <div class="galary_slider  carousel-cell">
+        <center>
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+        </center>
+                         <p class="carousel-status" style="margin-left:-2em;">{{ forloop.index }}/{{ total-slide-count }}</p>
+
+        {% if block.settings.slide_caption %}
+        <div class="slider-caption">
+           {{ block.settings.slide_caption }}
+        </div>
+         {% endif %}
+
+      </div>
+      {% endfor %}
+    </div>
+   
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.gallery-slider.name",
+    "settings": [
+				{
+                "type": "text",
+                "id": "heading",
+                "label": "t:sections.gallery-slider.settings.label"
+              },
+              {
+                "type":"richtext",
+                "id":"subheading",
+                "label":"Subheading"
+              }
+			],
+	"blocks": [
+				{
+				"type" : "image",
+				"name" : "Gallery Slider",
+				"settings": [ {
+							"type": "image_picker",
+     						 "id": "image",
+     						 "label": "t:sections.gallery-slider.blocks.image.label"
+							  },
+                              {
+                               "type":"text",
+                                "id":"slide_caption",    
+                                 "label":"Add caption",
+                                  "default":"Collin Sexton chooses Reathlete"
+                              }
+							]
+				}
+
+			],
+"presets": [
+    {
+      "name": "Gallery Slider"
+      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

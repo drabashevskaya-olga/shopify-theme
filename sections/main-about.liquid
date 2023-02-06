@@ -1,0 +1,91 @@
+<!-- <style>
+  .page-about-us .header.header--middle-left {
+    border-bottom: 1px solid #E0E0E0;
+  }
+</style> -->
+{{ 'section-about.css' | asset_url | stylesheet_tag }}
+<section class="abouts-section">
+  <div class="page-width">
+    <div class="about-warpper-box">
+
+      {% for block in section.blocks %}
+
+      <div class="about-warpper-data">
+        <div class="about-warpper-content">
+          {% if block.settings.heading != blank %}
+          <h2 class="heading">{{ block.settings.heading }}</h2>
+          {% endif %}
+          {% if block.settings.heading != blank %}
+          <div class="sub_heading">
+            {{ block.settings.sub_heading }}
+          </div>
+          {% endif %}
+          {% if block.settings.button_label != blank and block.settings.button-url != blank %}
+          <a href="{{ block.settings.button-url }}" class="read-more-btn">{{ block.settings.button_label }}</a>
+          {% endif %}
+        </div>
+        {% if block.settings.image != blank %}
+        <div class="about-warpper-image">
+          <img src="{{ block.settings.image | img_url: 'master' }}" />
+        </div>
+        {% endif %}
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Page Image with Text",
+"settings": [
+],
+"blocks": [
+{
+"type": "data",
+"name": "content",
+"settings": [
+{
+"type": "image_picker",
+"label": "image",
+"id": "image"
+},
+{
+"type": "text",
+"label": "Heading",
+"id": "heading"
+},
+{
+"type": "richtext",
+"label": "Sub Heading",
+"id": "sub_heading"
+},
+{
+"type": "text",
+"label": "Button Label",
+"id": "button_label"
+},
+{
+"type": "url",
+"label": "Button Url",
+"id": "button-url"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Page Image with Text",
+"category": "image"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,98 @@
+<div class="custom-testimonial-wrapper product-testimonial-wrapper">
+
+	<div class="page-width">
+
+		<h1 class="section-tittle h1">{{ section.settings.heading }}</h1>
+
+		<div class="carousel" data-flickity='{ "freeScroll": true }'>
+	
+			{% for block in section.blocks %}
+				<div class="testimonial carousel-cell">
+					
+					
+					<div class="author">
+						<div class="author-image-wrapper">
+							<img src="{{ block.settings.avtar | img_url: '400X400' }}" alt="{{ block.settings.avtar.alt }}"  class="hideMobile"/>
+							<img src="{{ block.settings.avtar_mob | img_url:'300X300' }}" alt="{{ block.settings.avtar.alt }}"  class="hideDesktop"/>
+						</div>
+						
+					</div>
+
+					<div class="description">
+						<p class="author-name">{{block.settings.avtar_name}}</p>
+						<h1 class="h1">{{block.settings.description_heading}}</h1>
+						<p>{{block.settings.description}}</p>
+					</div>
+					
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+</div>
+{% schema %}
+	{
+		"name": "Product Testimonial",
+		"class":"spaced-section",
+		"settings": [
+				{
+									"type": "text",
+									"id": "heading",
+									"label": "Heading",
+									"default": "ATHLETES"
+				}
+				
+				
+],
+"blocks" : [
+{
+"type" : "text",
+"name" : "testimonial",
+"settings" : [
+			{
+									"type": "image_picker",
+									"id": "avtar",
+									"label": "select avtar"
+				},
+								{
+									"type": "image_picker",
+									"id": "avtar_mob",
+									"label": "select avtar mobile"
+				},
+				{
+									"type": "text",
+									"id": "avtar_name",
+									"label": "Enter Name",
+									"default": "Collin Sexton"
+				},
+				{
+									"type": "text",
+									"id": "description_heading",
+									"label": "Heading",
+									"default": "I can’t imagine my life without ReAthlete products. Absolutely must-have!"
+				},
+				{
+									"type": "text",
+									"id": "description",
+									"label": "Enter Description",
+									"default": "“You dream. You plan. You reach. There will be obstacles. There will be doubters. There will be mistakes. But with hard work, with belief, with confidence and trust in yourself and those around you, there are no limits.”"
+				}	
+]
+}
+
+],
+"presets": [
+		{
+			"name": "t:sections.product-testimonial.presets.name"
+}
+]
+	}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}

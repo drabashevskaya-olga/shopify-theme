@@ -1,0 +1,71 @@
+  <div id="faq">
+      <div class="container">
+        <div class="row">
+          {% if section.settings.faq_heading != blank %}
+          <div class="col-12 text-center">
+            <h3 class="heavy">FAQ</h3>
+          </div>
+          {% endif %}
+          <div class="col-lg-8 offset-lg-2">
+            <dl>
+              {% for block in section.blocks %}
+                <div class="main_faq">
+                {% if block.settings.faq_question != blank %}
+                  <dt>{{ block.settings.faq_question }}</dt>
+                {% endif %}
+                {% if block.settings.faq_answer != blank %}
+                  <dd style="display:none;">{{ block.settings.faq_answer }}</dd>
+                {% endif %}
+                </div>
+              {% endfor %}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+$('div#faq .main_faq dt').click(function(e){
+e.preventDefault();
+$(this).parents('.main_faq').find('dd').slideToggle();
+$('div#faq .main_faq dd').not($(this).parents('.main_faq').find('dd')).slideUp();
+
+});
+</script>
+
+{% schema %}
+  {
+    "name": "Faq",
+    "settings": [
+      {
+        "type": "text",
+        "id": "faq_heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+     {
+       "name": "Faq",
+       "type": "faq",
+       "settings": [
+         {
+           "type": "text",
+           "id": "faq_question",
+           "label": "Question"
+         },
+         {
+           "type":"richtext",
+           "id": "faq_answer",
+           "label": "Answer"
+         }
+       ]
+     }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

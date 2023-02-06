@@ -1,0 +1,52 @@
+ <!-- header_banner -->
+ {% if section.settings.announcement_bar_link != blank %}
+   <a href="{{ section.settings.announcement_bar_link }}">
+ {% endif %}
+    <section class="banner-heading_center" style="background-color:{{ section.settings.header_background_color }}">
+        <div class="container">
+          {% if section.settings.header_text != blank %}
+            <div class="banner-heading_inner">
+                <h4 style="color:{{ section.settings.text_color }}">{{ section.settings.header_text }}</h4>
+            </div>
+          {% endif %}
+        </div>
+    </section>
+ {% if section.settings.announcement_bar_link != blank %}
+    </a>
+ {% endif %}
+<!-- header_banner -->
+
+
+{% schema %}
+  {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header_text",
+        "label": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "header_background_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color"
+      },
+      {
+        "type": "url",
+        "id": "announcement_bar_link",
+        "label": "Link"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

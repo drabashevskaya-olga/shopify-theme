@@ -1,0 +1,109 @@
+<section class="mid-section">
+        <div class="container">
+            <div class="main_mid">
+                <div class="main_mid_left">
+                    <div class="mid-left-div">
+                      {% if section.settings.video_url != blank %}
+                        <video playsinline="" autoplay="" muted="" loop="">
+                            <source src="{{ section.settings.video_url }}" type="video/mp4">
+                        </video>
+                      {% comment %}
+                        <video playsinline="" autoplay="" muted="" loop="">
+                            <source src="images/Reathlete_Version.mp4" type="video/mp4">
+                        </video>
+                      {% endcomment %}
+                      {% endif %}
+                    </div>
+                </div>
+                <div class="main_mid_right">
+                  {% if section.settings.heading != blank %}
+                    <h2 class="mid-heading">{{ section.settings.heading }}</h2>
+                  {% endif %}
+                  {% if section.settings.paragraph != blank %}
+                    <p class="mid-para">{{ section.settings.paragraph }}</p>
+                  {% endif %}
+                </div>
+            </div>
+
+          {% if section.settings.desktop_btn_text != blank %}
+                 <div class="desktop_button">
+            <div class="center-btn-div">
+                <a href="{{ section.settings.desktop_button_link }}" style="background-color:{{ section.settings.btn__background_color }}; color:{{ section.settings.button_text_color }}" class="mid-button w-button">{{ section.settings.desktop_btn_text }} <span class="text-span-4 icon_black">
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+          {% endif %}
+          {% if section.settings.mobile_btn_text != blank %}
+          <div class="mobile_button">
+
+            <div class="center-btn-div">
+                <a href="{{ section.settings.mobile_button_link }}" style="background-color:{{ section.settings.btn__background_color }}; color:{{ section.settings.button_text_color }}" class="mid-button w-button">{{ section.settings.mobile_btn_text }} <span class="text-span-4 icon_black">
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+    </section>
+
+{% schema %}
+  {
+    "name": "Video",
+    "settings": [
+      {
+        "type": "url",
+        "id": "video_url",
+        "label": "Video Url"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "paragraph",
+        "label": "Paragraph"
+      },
+      {
+        "type": "text",
+        "id": "desktop_btn_text",
+        "label": "Desktop Button Text"
+      },
+      {
+        "type": "text",
+        "id": "mobile_btn_text",
+        "label": "Mobile Button Text"
+      },
+      {
+        "type":"url",
+        "id": "desktop_button_link",
+        "label": "Desktop Button Link"
+      },
+      {
+        "type": "url",
+        "id": "mobile_button_link",
+        "label": "Mobile Button Link"
+      },
+      {
+        "type": "color",
+        "id": "btn__background_color",
+        "label": "Button Background Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text Color"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

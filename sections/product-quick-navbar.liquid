@@ -1,0 +1,81 @@
+<style>
+  .quick-navbar.hideMobile {
+    display: inline-flex;
+    width: 100%;
+  }
+
+  a.quick-navbar-link {
+    padding: 10px;
+    color:black;
+    text-decoration: unset;
+  }
+  a.quick-navbar-link.active {
+    color: #2ecc87;
+  }
+  .section-links {
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+</style> 
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- assign compare_at_price = current_variant.compare_at_price -%}
+{%- assign price = current_variant.price -%}
+<div class="quick-navbar-wrapper page-width hideMobile">
+<div class="top-seperator">
+  <img src="{{'top-border-product.png' | asset_url}}">
+  </div>
+<div class="quick-navbar product-navbar">
+{%- assign product_image_logo_name = product.handle | append: '.png' -%}
+  <img src="{{ product_image_logo_name | asset_url}}" alt={{product_image_logo_name }}>
+  {%comment%}
+  {{ product.title }}
+{%endcomment%}
+  <div class="section-links">
+    <a class="quick-navbar-link active" href="#details"> Overview </a>  
+    {% if product.metafields.whats_included.list_item != blank %}
+    <a class="quick-navbar-link" href="#whats-include"> WHAT’S INCLUDED </a>  
+    {% endif %}
+    <a class="quick-navbar-link" href="#user-experience"> USER EXPERIENCE </a>
+    {% comment %}
+    <a  class="quick-navbar-link" href="#product-gallery"> GALLERY </a>
+{% endcomment %}
+        <a class="quick-navbar-link" href="#specification">  SPECIFICATIONS </a>  
+
+    <a class="quick-navbar-link" href="#reviews"> REVIEWS </a>  
+  </div>
+  {%- render 'price-quick-nav', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+
+  <div class="quick-navbar-buy-now-button">
+    {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    
+    {%- render 'buy-it-now-button', product: product -%}
+    
+    {%comment%}
+    {{ form | payment_button }}
+    {%endcomment%}
+    {%- endform -%}
+  </div>
+</div>
+</div>
+
+
+{% schema %}
+{
+"name": "Product Quick Navbar",
+"settings": [],
+"presets": [{
+"name": "Product Quick Navbar"
+}]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,214 @@
+{% comment %}
+{%- if product.metafields['accordian-img'].size > 0 -%}
+
+{%- for slide in product.metafields['accordian-img'] -%}
+
+{%- assign key = slide | first -%}
+{%- assign description = slide | last -%}
+
+{%- assign image_name = key | split: "." | first | strip -%} 
+{%- assign image_ext = key | split: "." | last | strip -%}
+
+{%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+
+Image: {{desktopImageName | file_url}}<br />
+Description: {{description}} <br />
+
+{%- endfor -%}
+{%- endif -%}
+{% endcomment %}
+
+{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="multicolumn {{section.settings.custom_class}}  background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+  <div class="page-width">
+   {%- if product.metafields['accordian-img'].size > 0 -%}
+    <div id="accordion-container" class="hideDesktop">
+
+        <div class="accordian-content-wrapper">
+           
+                     <h2 class="section-title"> {{ section.settings.accordian_heading }}</h2>
+     
+          {%- for slide in product.metafields['accordian-img'] -%}
+          
+      {%- assign key = slide | first -%}
+      {%- assign description = slide | last -%}
+      {%- assign image_name = key | split: "." | first | strip -%} 
+      {%- assign image_ext = key | split: "." | last | strip -%}
+      {%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+      {%- assign img-id = key | split: "." | first | strip -%}   
+        
+          
+          <div class="accordion">
+            {{ description }}
+
+            <!-- /.accordion__body -->
+          </div>
+      <!-- /#services__acordion -->
+      {% endfor %}
+      </div>
+    </div>
+    <div id="accordion-container" class="hideMobile">
+      <div class="accordian-image-wrapper">
+         {%- for slide in product.metafields['accordian-img'] -%}
+            {%- assign key = slide | first -%}
+            {%- assign image_name = key | split: "." | first | strip -%} 
+            {%- assign image_ext = key | split: "." | last | strip -%}
+            {%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+            {%- assign img-id = key | split: "." | first | strip -%}
+          <div id="{{ img-id }}" class="accordian-img">
+            <img
+                 id="{{ img-id }}-img"
+                 src="{{ desktopImageName | file_url }}"
+                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                 alt="{{ desktopImageName.alt | escape }}"
+                 loading="lazy"
+                 width="{{ desktopImageName.width }}"
+                 height="{{ desktopImageName.height }}"
+                 >
+          </div>
+          {% endfor %}
+      </div>
+      <div class="accordian-content-wrapper">
+            <h2 class="section-title"> {{ section.settings.accordian_heading }}</h2>
+        <div class="accordian-inner-wrapper">
+          {%- for slide in product.metafields['accordian-img'] -%}
+          {%- assign key = slide | first -%}
+          {%- assign description = slide | last -%}
+          {%- assign image_name = key | split: "." | first | strip -%} 
+          {%- assign image_ext = key | split: "." | last | strip -%}
+          {%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+          {%- assign img-id = key | split: "." | first | strip -%}
+         <div class="accordion" tab-name="{{ img-id }}">
+            {{description}}
+            <!-- /.accordion__body -->
+          </div>
+         {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+        {% schema %}
+        {
+        "name": "t:sections.product-accordian.name",
+        "tag": "section",
+        "settings": [
+		{
+          "type": "text",
+          "id": "accordian_heading",
+          "label": "Enter Heading For Accordian",
+		  "info" : "For inserting Dynamic Heading First Create Meta feild and then select"
+        },
+        {
+        "type":"text",
+        "id":"custom_class",
+        "label":"Custom class"
+        },
+        {
+        "type": "text",
+        "id": "title",
+        "default": "Multicolumn",
+        "label": "t:sections.product-accordian.settings.title.label"
+        },
+        {
+        "type": "select",
+        "id": "image_width",
+        "options": [
+        {
+        "value": "third",
+        "label": "t:sections.product-accordian.settings.image_width.options__1.label"
+        },
+        {
+        "value": "half",
+        "label": "t:sections.product-accordian.settings.image_width.options__2.label"
+        },
+        {
+        "value": "full",
+        "label": "t:sections.product-accordian.settings.image_width.options__3.label"
+        }
+        ],
+        "default": "full",
+        "label": "t:sections.product-accordian.settings.image_width.label"
+        },
+        {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+        {
+        "value": "adapt",
+        "label": "t:sections.product-accordian.settings.image_ratio.options__1.label"
+        },
+        {
+        "value": "portrait",
+        "label": "t:sections.product-accordian.settings.image_ratio.options__2.label"
+        },
+        {
+        "value": "square",
+        "label": "t:sections.product-accordian.settings.image_ratio.options__3.label"
+        },
+        {
+        "value": "circle",
+        "label": "t:sections.product-accordian.settings.image_ratio.options__4.label"
+        }
+        ],
+        "default": "adapt",
+        "label": "t:sections.product-accordian.settings.image_ratio.label"
+        },
+        {
+        "type": "select",
+        "id": "column_alignment",
+        "options": [
+        {
+        "value": "left",
+        "label": "t:sections.product-accordian.settings.column_alignment.options__1.label"
+        },
+        {
+        "value": "center",
+        "label": "t:sections.product-accordian.settings.column_alignment.options__2.label"
+        }
+        ],
+        "default": "left",
+        "label": "t:sections.product-accordian.settings.column_alignment.label"
+        },
+        {
+        "type": "select",
+        "id": "background_style",
+        "options": [
+        {
+        "value": "none",
+        "label": "t:sections.product-accordian.settings.background_style.options__1.label"
+        },
+        {
+        "value": "primary",
+        "label": "t:sections.product-accordian.settings.background_style.options__2.label"
+        },
+        {
+        "value": "secondary",
+        "label": "t:sections.product-accordian.settings.background_style.options__3.label"
+        }
+        ],
+        "default": "primary",
+        "label": "t:sections.product-accordian.settings.background_style.label"
+        },
+        {
+        "type": "checkbox",
+        "id": "swipe_on_mobile",
+        "default": false,
+        "label": "t:sections.product-accordian.settings.swipe_on_mobile.label"
+        }
+        ],
+
+        "presets": [
+        {
+        "name": "t:sections.product-accordian.presets.name"
+        }
+        ]
+        }
+        {% endschema %}

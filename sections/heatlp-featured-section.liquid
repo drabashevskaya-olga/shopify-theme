@@ -1,0 +1,64 @@
+<section class="feature-section-two">
+        <div class="container">
+            <div class="feature_inner_two">
+              {% if section.settings.featured_image != blank %}
+                <div class="feature_left">
+                    <img src="{{ section.settings.featured_image | img_url:'master' }} alt="heat">
+                </div>
+              {% endif %}
+                <div class="feature_right" data-aos="fade-right">
+                    <div class="frature_right_inner">
+                      {% for block in section.blocks %}
+                        <div class="inner_img_feature_section">
+                        {% if block.settings.right_logo != blank %}
+                            <div class="iconbox">
+                                <img src="{{ block.settings.right_logo | img_url:'master'}}" height="50px" alt="drop">
+                            </div>
+                        {% endif %}
+                        {% if block.settings.logo_heading != blank %}
+                            <h3 class="icon-text-2">{{ block.settings.logo_heading }}</h3>
+                        {% endif %}
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% schema %}
+  {
+    "name": "Featured Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "featured_image",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+     {
+       "name": "Logo",
+       "type": "logo",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "right_logo",
+           "label": "Logo"
+         },
+         {
+           "type":"text",
+           "id": "logo_heading",
+           "label": "Heading"
+         }
+       ]
+     }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

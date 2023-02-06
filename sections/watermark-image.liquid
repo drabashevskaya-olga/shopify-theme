@@ -1,0 +1,88 @@
+
+
+<div class="water_mark_image_section">
+
+  <div class="watermark-image-wrapper">
+    <marquee width="100%" direction="left">
+<img src="{{ section.settings.watermark_img_1 | img_url: '1000x' }}" alt="" />
+  
+  <img src="{{ section.settings.watermark_img_2 | img_url: '1000x' }}" alt=""/>
+    </marquee>
+  </div>
+  <div class="page-width">
+  <center>
+		<img src="{{ section.settings.main_image | img_url: '300x' }}" alt="" />
+  </center>
+  <div class="custom-content-wrapper">
+  <h1 class="h1"><b>{{ section.settings.bold_heading }}</b></h1>
+    <h3 class="h3">{{ section.settings.small_heading }}</h3>
+    <p>{{ section.settings.text }}</p>
+  <a class="button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+  </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Water Mark Image",
+    "settings": [
+                  {
+                        "type": "image_picker",
+                        "id": "watermark_img_1",
+                        "label": "left watermark image"
+                   },
+				   {
+                        "type": "image_picker",
+                        "id": "watermark_img_2",
+                        "label": "Right watermark image"
+                   },
+				   {
+                        "type": "image_picker",
+                        "id": "main_image",
+                        "label": "Main Image"
+                   },
+				   {
+                    "type": "textarea",
+                    "id": "bold_heading",
+                    "label": "Heading",
+                    "default": "FOLD"
+                   },
+				   {
+                    "type": "text",
+                    "id": "small_heading",
+                    "label": "Small Heading",
+                    "default": "World's First Folding Compact Massage Gun"
+                   },
+					{
+                    "type": "text",
+                    "id": "text",
+                    "label": "Enter Text"
+                   },
+					{
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Enter Button Text",
+					"default" : "Discover More",
+					"info": "Leave text blank to remove button"
+                   },
+					{
+                      "type": "url",
+                      "id": "button_link",
+                      "label": "Button link"
+                    }
+					
+],
+"presets": [
+    {
+      "name": "Watermark Image"
+      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

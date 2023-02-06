@@ -1,0 +1,245 @@
+<section class="cards-section" id="card_sec">
+        <div class="container">
+          {% if section.settings.heading != blank %}
+            <h2 class="center-h2">
+                <strong>{{ section.settings.heading }}</strong>
+            </h2>
+          {% endif %}
+            <div class="card_inner_box">
+              {% for block in section.blocks %}
+                {% assign product = block.settings.card_product %}
+                <div class="card_inner {% if forloop.index == 3 %}es_big{% endif %}">
+                  {% if forloop.index == 2 %}
+                    <div class="es_featured_snippet">
+                        <label class="es_featured_label" style="background:#19af42; color:#FFF;">BEST VALUE</label>
+                    </div>
+                  {% endif %}
+                  {% if forloop.index == 3 %}
+                      <div class="es_featured_snippet">
+                        <label class="es_featured_label" style="background:#e51a1a; color:#FFF;">BEST SELLER</label>
+                    </div>
+                  {% endif %}
+                    <h4 class="card_title">{{ product.title }}</h4>
+                    <img class="card_img" src="{{ product.featured_image | img_url:'master' }}" alt="card">
+                    <div class="text_lable">
+                      {% unless forloop.index == 3 %}
+                        <label class="old_price">Reg {{ product.compare_at_price | money_without_trailing_zeros}} </label>
+                      {% endunless %}
+                        {% if forloop.index == 3  %}
+                         <label class="old_price">{{ product.compare_at_price | money_without_trailing_zeros}} </label>
+                        {% endif %}
+                        <label class="price">{{ product.price | money_without_trailing_zeros }}
+                        </label><span class="label-each">/EACH</span>
+                    </div>
+                    <div class="save_row">
+                      {% if product.compare_at_price_max > product.price %}
+                        {% assign percentage = product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0' %}
+                      {% endif %}
+                        <label>Save {{ percentage }}%</label>
+                    </div>
+                  {% if block.settings.guarantee_text != blank %}
+                    <label class="es_margin_top_10">{{ block.settings.guarantee_text }}</label>
+                  {% endif %}
+                  {% if block.settings.btn_text != blank %}
+                    <a data-var="{{ product.first_available_variant.id }}" href="{{ block.settings.btn_url }}" style="background-color:{{ block.settings.btn_bg_color }}; color:{{ block.settings.btn_text_color }}" class="es_btn es_btn-order">
+                        <span> <i class="fa fa-lock" aria-hidden="true"></i> {{ block.settings.btn_text }}</span>
+                    </a>
+                  {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <section class="mobile_card" id="card_mob">
+        <div class="container">
+            <div class="es_variant_container es_mobile">
+              {% for block in section.blocks %}
+                {% assign product = block.settings.card_product %}
+                <div class="es_variant_row es_row">
+                    <div class="es_variant col-md-12 es_selected selected-checkbox">
+                      {% if forloop.index == 2 %}
+                          <label class="es_featured-label" style="background: #19af42; color: #FFF;">BEST VALUE</label>
+                      {% endif %}
+                      {% if forloop.index == 3 %}
+                          <label class="es_featured-label   best_wrap" style="background: #e51a1a; color: #FFF;">BEST SELLER</label>
+                             <div class="es_tickbox_col es_col ">
+                            <input type="checkbox" class="dynamic-select seller_check check3_wrap"  checked data-var="{{ product.first_available_variant.id }}">
+                        </div>
+                      {% endif %}
+                     {% if forloop.index == 1 or forloop.index == 2  %}
+                        <div class="es_tickbox_col es_col ">
+                            <input type="checkbox" class="dynamic-select "  data-var="{{ product.first_available_variant.id }}">
+                        </div>
+                       {% endif %}
+                        <div class="es_img es_col">
+                            <img class="es_product_img" src="{{ product.featured_image | img_url:'master' }}" alt="card">
+                        </div>
+                        <div class="es_text es_col">
+                            <h2 class="es_variant_title">{{ product.title }}</h2>
+                            {% if product.compare_at_price_max > product.price %}
+                              {% assign percentage = product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0' %}
+                            {% endif %}
+                            <label class="es_freeshipping_text">Save {{ percentage }}%&nbsp;</label>
+                            <div class="pricing-info">
+                                <h3 class="es_price">{{ product.price | money_without_trailing_zeros }} <span class="each-price">/EACH</span>
+                                </h3>
+                                <label class="es_old_price">Reg. {{ product.compare_at_price | money_without_trailing_zeros}}</label>
+                             {% comment %}  <label class="es_total_price">  {{ product.compare_at_price | money_without_trailing_zeros}}</label> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              {% endfor %}
+
+                <div class="es_button_row es_row">
+                  {% if section.settings.mobile_btn_text %}
+                    <a data-var="{{ product.first_available_variant.id }}" href="{{ section.settings.mobile_btn_url }}" style="background-color:{{ section.settings.btn_bg_color }}; color:{{ section.settings.btn_text_color }}" class="es_btn es_btn-order col-md-12">
+                        <span><i class="fa fa-lock"></i> {{ section.settings.mobile_btn_text }}</span>
+                        <br>
+                        <!-- <span>
+                            <small>Try it risk free! - 30 day money back guarantee!</small>
+                        </span> -->
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="es_extra_row"></div>
+            </div>
+        </div>
+    </section>
+
+<script>
+$( document ).ready(function() 
+{
+  AOS.init();
+        $(document).on("click", ".dynamic-select", function () {
+            var obj = $(this);
+            $(".selected-checkbox").removeClass("active");
+            $(".dynamic-select").prop("checked",false);
+            if (obj.parents(".selected-checkbox").hasClass('active') == false) {
+                obj.parents(".selected-checkbox").addClass("active");
+            }
+           obj.prop("checked",true);
+        });
+});
+
+$(document).on('click','a.es_btn.es_btn-order',function(e)
+{ 
+    e.preventDefault();
+    var ID = $(this).attr("data-var"); 
+    $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: {
+  quantity: 1,
+  id: ID
+},
+  dataType: 'json', 
+ success: function (data) { 
+    window.location.href = '/checkout';
+ 
+ } 
+ });
+}) 
+
+$(document).on('click','a.es_btn.es_btn-order.col-md-12',function(e){ 
+    e.preventDefault();
+var ID = $("input.dynamic-select:checked").attr("data-var"); 
+$.ajax({
+type: 'POST',
+url: '/cart/add.js',
+data: {
+  quantity: 1,
+  id: ID
+},
+  dataType: 'json', 
+ success: function (data) { 
+    window.location.href = '/checkout';
+ 
+ } 
+ });
+}) 
+
+
+
+  $(document).ready( function () { 
+  $(".dynamic-select:checked").parents(".es_variant_row").find(".es_variant").addClass("active");
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Cards",
+    "settings": [
+      {
+        "type":"text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "mobile_btn_text",
+        "label": "Mobile Button Text"
+      },
+      {
+        "type": "url",
+        "id": "mobile_btn_url",
+        "label" : "Mobile Button Link"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background Color"
+      },
+      {
+        "type": "color",
+        "id": "btn_text_color",
+        "label": "Button Text Color"
+      }
+    ],
+    "blocks": [
+     {
+       "name": "Product",
+       "type": "product",
+       "settings": [
+         {
+           "type": "product",
+           "id": "card_product",
+           "label": "Product"
+         },
+         {
+           "type": "text",
+           "id": "guarantee_text",
+           "label": "Text"
+         },
+         {
+           "type": "text",
+           "id": "btn_text",
+           "label": "Desktop Button Text"
+         },
+         {
+           "type": "url",
+           "id": "btn_url",
+           "label" : "Desktop Button Link"
+         },
+         {
+           "type": "color",
+           "id": "btn_bg_color",
+           "label": "Button Background Color"
+         },
+         {
+           "type": "color",
+           "id": "btn_text_color",
+           "label": "Button Text Color"
+         }
+       ]
+     }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

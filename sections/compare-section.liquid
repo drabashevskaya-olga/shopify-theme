@@ -1,0 +1,44 @@
+{% if  section.settings.compare_label != blank %}
+<div class="page-width">
+  <div class="compare_label_button">
+<button class="button button--primary compare_label ">
+            {{ section.settings.compare_label }}
+    </button></div></div>
+{% endif %}
+<!------------Compare Product---------->
+{% render 'Compare_Popup' %}
+
+
+
+{% schema %}
+  {
+    "name": "Compare Collection",
+    "settings":[
+{
+"type":"text",
+"id":"compare_label",
+"label":"Compare Title",
+"default":"Add Product To Comparision"
+}
+],
+    "blocks": [
+{
+        "type":"collection",
+         "name":"Select Compare Collection",
+        "settings":[
+       {
+"type":"collection",
+"id":"compare_collection",
+"label":"Select Collection"
+}
+]
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

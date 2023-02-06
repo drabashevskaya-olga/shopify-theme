@@ -1,0 +1,98 @@
+{% comment %}
+{%- if product.metafields['gallery-slider'].size > 0 -%}
+
+{%- for slide in product.metafields['gallery-slider'] -%}
+
+{%- assign key = slide | first -%}
+{%- assign description = slide | last -%}
+
+{%- assign image_name = key | split: "." | first | strip -%} 
+{%- assign image_ext = key | split: "." | last | strip -%}
+
+{%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+
+Image: {{desktopImageName | file_url}}<br />
+Description: {{description}} <br />
+
+{%- endfor -%}
+{%- endif -%}
+{% endcomment %}
+
+
+{% if product.metafields['gallery-slider'] != blank and product.metafields['gallery-slider'].size > 0 %}
+<div id="product-gallery" class="gallery-slider-wrapper">
+  <div class="page-width">
+    <div class="top-title-wrapper">
+      <h1 class="section-tittle">{{ product.title }} GALLERY</h1>
+      {% if section.settings.subheading != blank %}
+      <div class="subheading">
+        {{section.settings.subheading}}
+      </div>
+      {% endif %}
+    </div>
+    </div>
+  <div class="page-width product-featured-banner-bottom carousel">
+    <div class="product-gallery-items-wrapper " data-flickity='{ "draggable": true,"pageDots":true,"adaptiveHeight": true }'>
+      {%- for slide in product.metafields['gallery-slider'] -%}
+     {%- assign key = slide | first -%}
+      {%- assign description = slide | last -%}
+
+      {%- assign image_name = key | split: "." | first | strip -%} 
+      {%- assign image_ext = key | split: "." | last | strip -%}
+
+      {%- assign desktopImageName = image_name | append :"." | append: image_ext -%}
+      
+      <div class="galary_slider carousel-cell">
+        
+          <img
+
+                 src="{{ desktopImageName | file_url }}"
+                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                 alt="{{ desktopImageName.alt | escape }}"
+                 loading="lazy"
+                 width="{{ desktopImageName.width }}"
+                 height="{{ desktopImageName.height }}"
+                 >
+          
+        {% if description != blank %}
+        <div class="carousel-status hideMobile">
+      
+     
+      
+    {{ forloop.index }} / {{ product.metafields['gallery-slider'].size }}
+    
+    </div>
+        <div class="slider-caption">
+           {{ description }}
+        </div>
+         {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "t:sections.gallery-slider.name",
+    "settings": [
+				
+			],
+	
+"presets": [
+    {
+      "name": "Product Gallery Slider"
+      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

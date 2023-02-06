@@ -1,0 +1,110 @@
+{{ 'product-section.css' | asset_url | stylesheet_tag }}
+
+<section class="main-product-section">
+  <div class="page-width">
+    <div class="main-product-warpper">
+      <div class="main-title-warpper">
+        
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      
+      <div class="product-grid-warpper">
+        {% for block in section.blocks %}
+        <div class="products-grid-item">
+			{% if block.settings.product_url %}
+          <a href="{{ block.settings.product_url }}">
+            <div class="products-grid-image">
+          <img src="{{ block.settings.image | img_url: 'master' }}" />
+            </div>
+            <div class="products-grid-content">
+              {% if block.settings.heading != blank %}
+              <h2 class="heading">{{ block.settings.heading }}</h2>
+              {% endif %}
+              {{ block.settings.sub_heading }}
+              {% if block.settings.product_price != blank %}
+              <h4>{{ block.settings.product_price }}</h4>
+              {% endif %}
+            </div>
+          </a>
+          {% endif %}
+        </div>
+        {% endfor %}
+        
+
+      </div>
+        {% if section.settings.Button_label != blank %}
+        <div class="view-allbutton">
+          <a href="{{ section.settings.view_url }}" class="read-more-btn">{{ section.settings.Button_label }}</a>
+        </div>
+        {% endif %}
+    </div>
+    
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Product Section",
+    "settings": [
+    {
+    "type": "text",
+    "label": "Heading",
+    "id": "heading"
+    },
+    {
+    "type": "text",
+    "label": "Button Label",
+    "id": "Button_label"
+    },
+    {
+    "type": "url",
+    "label": "View All Url",
+    "id": "view_url"
+    }
+],
+"blocks": [
+{
+"type": "Product_Data",
+"name": "Product Item",
+"settings": [
+{
+"type": "image_picker",
+"label": "image",
+"id": "image"
+},
+{
+"type": "text",
+"label": "Heading",
+"id": "heading"
+},
+{
+"type": "richtext",
+"label": "Sub Heading",
+"id": "sub_heading"
+},
+{
+"type": "text",
+"label": "Product Price",
+"id": "product_price"
+},
+{
+"type": "url",
+"label": "Product Url",
+"id": "product_url"
+}
+]
+}
+],
+  "presets": [
+  {
+  "name": "product-data",
+  "category": "image"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

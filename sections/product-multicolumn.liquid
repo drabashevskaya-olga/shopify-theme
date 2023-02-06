@@ -1,0 +1,348 @@
+<style>
+
+  <!-- css for acordian -->
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul .inner {
+    padding-left: 1em;
+    overflow: hidden;
+    display: none;
+  }
+
+  ul li {
+    margin: 0.5em 0;
+  }
+
+  ul li a.toggle {
+    width: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.78);
+    color: #fefefe;
+    padding: 0.75em;
+    border-radius: 0.15em;
+    transition: background 0.3s ease;
+  }
+
+  ul li a.toggle:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+</style>
+
+
+{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="multicolumn {{section.settings.custom_class}}  background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+  <div class="page-width">
+    {% if section.settings.title != blank or section.settings.button_label != blank  %}
+
+    {% endif %}
+    <slider-component class="slider-mobile-gutter">
+      <ul class="multicolumn-list grid grid--1-col{% if section.blocks.size > 3 and section.settings.image_width != 'full' %} grid--2-col-tablet grid--4-col-desktop{% elsif section.blocks.size > 3 and section.settings.image_width == 'full' %} grid--2-col-tablet{% else %} grid--3-col-tablet{% endif %}{% if section.settings.swipe_on_mobile and section.blocks.size > 1 %} slider slider--mobile grid--peek{% endif %}"
+          id="Slider-{{ section.id }}"
+          role="list"
+          >
+        {%- liquid
+          assign highest_ratio = 0
+          for block in section.blocks
+            if block.settings.image.aspect_ratio > highest_ratio
+              assign highest_ratio = block.settings.image.aspect_ratio
+            endif
+          endfor
+        -%}
+	
+         {%- for block in section.blocks -%}
+		
+        	{% case block.type %}
+        
+        {% when 'image' %}
+        <li id="multicolumn-image " class="multicolumn-list__item grid__item center">
+
+          {% if block.settings.desktop_image != blank %}
+
+          <div class="hideMobile multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+
+            <img
+
+                 src="{{ block.settings.desktop_image | img_url: 'master' }}"
+                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                 alt="{{ block.settings.desktop_image.alt | escape }}"
+                 loading="lazy"
+                 width="{{ block.settings.desktop_image.width }}"
+                 height="{{ block.settings.desktop_image.height }}"
+                 >
+          </div>
+
+          {% endif %}
+
+        </li>
+
+        
+        {% when 'text' %}
+        {% if block.settings.accordian_heading != blank %}  
+        <li id="multicolumn-acordian" class="multicolumn-list__item grid__item center">
+
+
+          <h3>{{  block.settings.accordian_heading }}</h3>
+
+
+          {% if  block.settings.accordian_heading_1 != blank %}
+          <ul class="accordion">
+
+            <li>
+              <a class="toggle show" href=#>{{ block.settings.accordian_heading_1 }}</a>
+              <p class="inner" style="display:block;">
+                {{ block.settings.accordian_1_content }}
+
+
+                {% if product.metafields.multicolumn.image != blank %}
+
+
+                <img class="hideDesktop"
+                     src="{{ product.metafields.multicolumn.image | img_url: '200x' }}"
+                      alt="{{ block.settings.desktop_image.alt | escape }}"
+                 loading="lazy"
+                 width="{{ block.settings.desktop_image.width }}"
+                 height="{{ block.settings.desktop_image.height }}"
+                     >
+
+                {% endif %}
+
+              </p>
+
+
+            </li>
+            {% if block.settings.accordian_heading_2 != blank %}
+            <li>
+              <a class="toggle" href=#>{{ block.settings.accordian_heading_2 }}</a>
+              <p class="inner">
+                {{ block.settings.accordian_2_content }}
+              </p>
+            </li>
+            {% endif %}
+             {% if block.settings.accordian_heading_3 != blank %}
+            <li>
+              <a class="toggle" href=#>{{ block.settings.accordian_heading_3 }}</a>
+              <p class="inner">
+                {{ block.settings.accordian_3_content }}
+              </p>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}       
+
+        </li>
+       
+        
+        {% endif %}
+	{% endcase %}
+	{% endfor %}
+      </ul>
+
+      {%- if section.settings.swipe_on_mobile -%}
+      <div class="slider-buttons no-js-hidden medium-hide small-hide">
+        <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+        <div class="slider-counter caption">
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
+        </div>
+        <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+      </div>
+      {%- endif -%}
+    </slider-component>
+
+  </div>
+</div>
+
+
+
+
+        {% schema %}
+        {
+        "name": "t:sections.product-multicolumn.name",
+        "tag": "section",
+        "settings": [
+        {
+        "type":"text",
+        "id":"custom_class",
+        "label":"Custom class"
+        },
+        {
+        "type": "text",
+        "id": "title",
+        "default": "Multicolumn",
+        "label": "t:sections.product-multicolumn.settings.title.label"
+        },
+        {
+        "type": "select",
+        "id": "image_width",
+        "options": [
+        {
+        "value": "third",
+        "label": "t:sections.product-multicolumn.settings.image_width.options__1.label"
+        },
+        {
+        "value": "half",
+        "label": "t:sections.product-multicolumn.settings.image_width.options__2.label"
+        },
+        {
+        "value": "full",
+        "label": "t:sections.product-multicolumn.settings.image_width.options__3.label"
+        }
+        ],
+        "default": "full",
+        "label": "t:sections.product-multicolumn.settings.image_width.label"
+        },
+        {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+        {
+        "value": "adapt",
+        "label": "t:sections.product-multicolumn.settings.image_ratio.options__1.label"
+        },
+        {
+        "value": "portrait",
+        "label": "t:sections.product-multicolumn.settings.image_ratio.options__2.label"
+        },
+        {
+        "value": "square",
+        "label": "t:sections.product-multicolumn.settings.image_ratio.options__3.label"
+        },
+        {
+        "value": "circle",
+        "label": "t:sections.product-multicolumn.settings.image_ratio.options__4.label"
+        }
+        ],
+        "default": "adapt",
+        "label": "t:sections.product-multicolumn.settings.image_ratio.label"
+        },
+        {
+        "type": "select",
+        "id": "column_alignment",
+        "options": [
+        {
+        "value": "left",
+        "label": "t:sections.product-multicolumn.settings.column_alignment.options__1.label"
+        },
+        {
+        "value": "center",
+        "label": "t:sections.product-multicolumn.settings.column_alignment.options__2.label"
+        }
+        ],
+        "default": "left",
+        "label": "t:sections.product-multicolumn.settings.column_alignment.label"
+        },
+        {
+        "type": "select",
+        "id": "background_style",
+        "options": [
+        {
+        "value": "none",
+        "label": "t:sections.product-multicolumn.settings.background_style.options__1.label"
+        },
+        {
+        "value": "primary",
+        "label": "t:sections.product-multicolumn.settings.background_style.options__2.label"
+        },
+        {
+        "value": "secondary",
+        "label": "t:sections.product-multicolumn.settings.background_style.options__3.label"
+        }
+        ],
+        "default": "primary",
+        "label": "t:sections.product-multicolumn.settings.background_style.label"
+        },
+        {
+        "type": "checkbox",
+        "id": "swipe_on_mobile",
+        "default": false,
+        "label": "t:sections.product-multicolumn.settings.swipe_on_mobile.label"
+        }
+        ],
+"max_blocks": 2,
+"blocks": [
+		{
+		"type": "image",
+		"name":"Image",
+        "settings": [
+		{
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image",
+			"info" : "For inserting Dynamic Images First Create Meta feild and then select"
+        }
+		  ]
+		},
+		{
+		"type": "text",
+		"name":"Accordian",
+        "settings": [
+		{
+          "type": "text",
+          "id": "accordian_heading",
+          "label": "Enter Heading For Accordian",
+		  "info" : "For inserting Dynamic Heading First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_heading_1",
+          "label": "Enter Heading For First Accordian Button",
+		  "info" : "For inserting Dynamic Heading First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_1_content",
+          "label": "Enter Content For First Accordian",
+		  "info" : "For inserting Dynamic Content First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_heading_2",
+          "label": "Enter Heading For Second Accordian Button",
+		  "info" : "For inserting Dynamic Heading First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_2_content",
+          "label": "Enter Content For Second Accordian",
+		  "info" : "For inserting Dynamic Content First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_heading_3",
+          "label": "Enter Heading For Third Accordian Button",
+		  "info" : "For inserting Dynamic Heading First Create Meta feild and then select"
+        },
+		{
+          "type": "text",
+          "id": "accordian_3_content",
+          "label": "Enter Content For Third Accordian",
+		  "info" : "For inserting Dynamic Content First Create Meta feild and then select"
+        }
+
+
+		  ]
+		}
+],
+
+        "presets": [
+        {
+        "name": "t:sections.product-multicolumn.presets.name",
+"blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "text"
+        }
+      ]
+        }
+        ]
+        }
+        {% endschema %}

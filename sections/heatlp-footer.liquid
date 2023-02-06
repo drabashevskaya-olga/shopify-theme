@@ -1,0 +1,49 @@
+<footer class="text-center">
+{% comment %}
+        <img src="https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__logo_small_fedc636d-d2cb-4cbe-9422-48d1e00910c8.png?v=1626459533"
+            class="footerlogo" alt="" loading="lazy">
+{% endcomment %}
+        {% if section.settings.footer_image != blank %}
+          <img src="{{ section.settings.footer_image | img_url:'master' }}" class="footerlogo" alt="" loading="lazy">
+        {% endif %}
+        {%- if section.settings.footer_menu != blank -%}
+        <ul class="footer-block__details-content list-unstyled media_wire_page">
+          {%- for link in section.settings.footer_menu.links -%}
+            <li>
+                <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link"> {{ link.title }} |</a>
+            </li>
+          {% endfor %}
+        </ul>
+       {% endif %}
+        <p class="copyright smallrtextfooter"> <span>&#169;</span>2021 ReAthlete</p>
+       {% if section.settings.payament_images != blank %}
+        <p class="footer_section_payments"> <img src="{{ section.settings.payament_images | img_url:'master' }}" alt="cb"></p>
+       {% endif %}
+        <p class="footer_section_icon"> <i class="fa fa-lock" aria-hidden="true"></i> SSL ENCRYPTED payment</p>
+    </footer>
+
+
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "footer_image",
+        "label": "Image"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu",
+        "label": "Menu"
+      },
+      {
+        "type":"image_picker",
+        "id": "payament_images",
+        "label" : "Payment Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,266 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{{ 'section-video.css' | asset_url | stylesheet_tag }}
+
+<!-- tab start -->
+
+<section class="video-section">
+  <div class="page-width">
+    <div class="video-main-heading">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="video-wapper-data">
+      <div class="video-wapper-item1">
+{% for block in section.blocks %}
+        <div class="tabcontent" id="{{ forloop.index }}">
+        <div class="video-banner-image video-section">
+          <noscript>
+            <div class="video-icon-ui video-section__media hide"
+                 {% if block.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: block.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
+                 >
+              <a href="{{ block.settings.video_url }}" class="video-section__poster media media--transparent media--landscape{% if block.settings.cover_image == blank %} video-section__placeholder{% endif %}">
+                {%- if videoThumbUrl != blank -%}
+                
+                             {%- assign videoId = block.settings.video_url.id -%}
+
+  {%- assign videoThumbUrl = 'https://img.youtube.com/vi/' | append: videoId | append : '/maxresdefault.jpg' -%} 
+
+            {%comment%}
+          <img src="{{videoThumbUrl}}">
+                {%endcomment%}
+                <img
+                     src="{{videoThumbUrl}}"
+                     sizes="{% if block.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                     alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                     loading="lazy"
+                     width="{{ videoThumbUrl.width }}"
+                     height="{{ videoThumbUrl.height }}"
+                     >
+                {%- else -%}
+                {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                {%- endif -%}
+              </a>
+            </div>
+          </noscript>
+          <deferred-media class="video-section__media deferred-media no-js-hidden" data-media-id="{{ block.settings.video_url.id }}"
+                          {% if block.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: block.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
+                          >
+            <button
+                    id="Deferred-Poster-Modal-{{ block.id }}"
+                    class="video-section__poster media deferred-media__poster media--landscape"
+                    type="button"
+                    >
+              
+              {%- if block.settings.video_thumbnail_image != blank -%}
+                                           {%- assign videoId = block.settings.video_url.id -%}
+
+  {%- assign videoThumbUrl = 'https://img.youtube.com/vi/' | append: videoId | append : '/maxresdefault.jpg' -%} 
+              
+              <img
+                   src="{{videoThumbUrl}}"
+                   sizes="{% if block.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                   alt="{{ 'sections.video.load_video' | t: description: block.settings.description | escape }}"
+                   loading="lazy"
+                   width="{{videoThumbUrl.width}}"
+                   height="{{videoThumbUrl.height}}"
+                   class="hideMobile">
+              {%- else -%}
+              {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+              {%- endif -%}
+
+              {% assign mobileImage = block.settings.cover_image_mob | default:block.settings.cover_image %}
+              {% if  mobileImage != blank %}
+              <img 
+                   src="{{videoThumbUrl}}"
+                   alt="{{ 'sections.video.load_video' | t: description: block.settings.description | escape }}"
+                   loading="lazy"
+                   width="{{ videoThumbUrl.width }}"
+                   height="{{ videoThumbUrl.height }}"
+                   class="hideDesktop">
+              {% endif %}
+              <div class="page-width video-caption">
+                {%comment%}
+                <h2 class="video-title">{{ block.settings.heading }}</h2>
+                {%endcomment%}
+                <span class="play-icon">
+                  <div class="video-icon-ui">
+                    <img src="https://cdn.shopify.com/s/files/1/0249/8687/8038/files/video-icon.png?v=1637307393" class="video-icon-image" />
+                  </div>
+                  {%comment%}
+                  {%- render 'icon-watch-video' -%}
+                  {%endcomment%}
+                </span>
+                <div class="duration-total"> <h6>{{block.settings.video_duration_time}}</h6></div>
+              </div>
+
+            </button>
+            <template>
+              {%- if block.settings.video_url.type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
+              {%- else -%}
+              <iframe src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
+              {%- endif -%}
+            </template>
+          </deferred-media>
+        </div>
+
+        <div class="main-title-video">
+          <h5>{{ block.settings.heading }}</h5>
+        </div>
+           </div>
+        {% endfor %}
+      </div>
+     
+      <!-- Blocks start -->
+      <div class="video-wapper-item2 tab">
+        <div class="overscroll-support">
+        {% for block in section.blocks %}
+		<div class="tablinks" onclick="openvideo(event, '{{ forloop.index }}')" id="defaultvideoOpen">
+        <div class="main-video-section">
+
+          <div class="video-banner-image">
+              {%- assign videoId = block.settings.video_url.id -%}
+
+  {%- assign videoThumbUrl = 'https://img.youtube.com/vi/' | append: videoId | append : '/maxresdefault.jpg' -%} 
+
+            
+          <img src="{{videoThumbUrl}}">
+              <div class="video-icon-ui">
+                <img src="https://cdn.shopify.com/s/files/1/0249/8687/8038/files/video-icon.png?v=1637307393" class="video-icon-image" />
+              </div>
+          </div>
+          <div class="video-title-data">
+            <h2>{{ block.settings.heading | truncate: 50}}</h2>
+            <span class="video-time">{{block.settings.video_duration_time}}</span>
+          </div>
+        </div>
+        </div>
+
+        {% endfor %}
+        </div>
+         {%- if section.settings.button_url != blank -%}
+        <div class="all-view-btn">
+          <a href="{{ section.settings.button_url }}">{{ section.settings.button_label }}</a>
+          
+        </div>
+        {%- endif -%}
+      </div>
+      <!-- Block Ends -->
+    </div>
+  </div>
+</section>
+
+<script>
+function openvideo(video, popvideo) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  
+  let $currentVideoBlock = $(`#${popvideo}`);
+  
+  
+  document.getElementById(popvideo).style.display = "block";
+  video.currentTarget.className += " active";
+  {% for block in section.blocks %}
+  $('#Deferred-Poster-Modal-{{ block.id }}')[0].click();
+    {% endfor %}
+  $currentVideoBlock.find('.video-section__poster').click()
+  console.log($currentVideoBlock);
+  
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultvideoOpen").click();
+</script>
+
+{% schema %}
+{
+"name": "Video with Text",
+"tag": "section",
+"class": "spaced-section spaced-section--full-width",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "Heading",
+"label": "Title Heading"
+},
+{
+"type": "text",
+"id": "button_label",
+"label": "Button Label"
+},
+{
+"type": "url",
+"id": "button_url",
+"label": "Button Url"
+}
+],
+"blocks": [
+{
+"type" : "video",
+"name" : "Small Video Block",
+"settings": [ 
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"info": "Heading"
+},
+{
+"type": "image_picker",
+"id": "video_thumbnail_image",
+"label": "Video Thumbnail Image"
+},
+{
+"type": "image_picker",
+"id": "cover_image",
+"label": "cover image"
+},
+{
+"type": "image_picker",
+"id": "cover_image_mob",
+"label": "Cover Image mobile"
+},
+{
+"type": "video_url",
+"id": "video_url",
+"accept": [
+"youtube",
+"vimeo"
+],
+"default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+"label": "t:sections.video.settings.video_url.label",
+"placeholder": "t:sections.video.settings.video_url.placeholder",
+"info": "video_url"
+},
+{
+"type": "text",
+"id": "video_duration_time",
+"label": "Video Duration Time",
+"info": "Time"
+},
+{
+"type": "checkbox",
+"id": "full_width",
+"label": "video.settings",
+"default": false
+}
+
+]
+}
+
+],
+"presets": [
+{
+"name": "Video with Text"
+}
+]
+}
+  {% endschema %}

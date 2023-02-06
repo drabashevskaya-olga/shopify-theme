@@ -1,0 +1,145 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+
+ {%- assign videoUrl = product.metafields.product_video.url -%}
+      {%- assign videoId = videoUrl | split: "/" | last | strip -%}
+      {%- assign videoType = "youtube" -%}
+
+{% if  product.metafields.product_video.cover_image_mobile != blank or product.metafields.product_video.cover_image != blank  %}
+
+
+<div class="video-section{% unless section.settings.full_width %} page-width{% endunless %}">
+  <noscript>
+    <div class="video-section__media"
+      {% if product.metafields.product_video.cover_image_mobile != blank %} style="padding-bottom: {{ 1 | divided_by: product.metafields.product_video.cover_image_mobile.aspect_ratio | times: 100 }}%;"{% endif %}
+    >
+      <a href="{{ videoUrl }}" class="video-section__poster media media--transparent media--landscape{% if product.metafields.product_video.cover_image_mobile == blank %} video-section__placeholder{% endif %}">
+        {%- if product.metafields.product_video.cover_image != blank -%}
+          <img
+            srcset="{%- if product.metafields.product_video.cover_image_mobile.width >= 375 -%}{{ product.metafields.product_video.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 750 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 1100 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '1100x' }} 1100w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 1500 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '1500x' }} 1500w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 1780 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '1780x' }} 1780w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 2000 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '2000x' }} 2000w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 3000 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '3000x' }} 3000w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image_mobile.width >= 3840 -%}{{ product.metafields.product_video.cover_image_mobile | img_url: '3840x' }} 3840w,{%- endif -%}"
+            src="{{ product.metafields.product_video.cover_image_mobile | img_url: '1920x' }}"
+            sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+            alt="{{ product.metafields.product_video.cover_image_mobile.description | escape }}"
+            loading="lazy"
+            width="{{ product.metafields.product_video.cover_image_mobile.width }}"
+            height="{{ product.metafields.product_video.cover_image_mobile.height }}"
+          >
+        {%- else -%}
+          {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+        {%- endif -%}
+      </a>
+    </div>
+  </noscript>
+  <deferred-media class="video-section__media deferred-media no-js-hidden" data-media-id="{{ videoId }}"
+    {% if product.metafields.product_video.cover_image != blank %} {% endif %}
+  >
+    <button
+      id="Deferred-Poster-Modal-{{ videoId }}"
+      class="video-section__poster media deferred-media__poster media--landscape"
+      type="button"
+    >
+      {%- if product.metafields.product_video.cover_image != blank -%}
+        <img
+          srcset="{%- if product.metafields.product_video.cover_image.width >= 375 -%}{{ product.metafields.product_video.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 750 -%}{{ product.metafields.product_video.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 1100 -%}{{ product.metafields.product_video.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 1500 -%}{{ product.metafields.product_video.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 1780 -%}{{ product.metafields.product_video.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 2000 -%}{{ product.metafields.product_video.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 3000 -%}{{ product.metafields.product_video.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+              {%- if product.metafields.product_video.cover_image.width >= 3840 -%}{{ product.metafields.product_video.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}"
+            src="{{ product.metafields.product_video.cover_image | img_url: '1920x' }}"
+          sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+          alt="{{ product.metafields.product_video.cover_image.description | escape }}"
+          loading="lazy"
+          width="{{ product.metafields.product_video.cover_image.width }}"
+          height="{{ product.metafields.product_video.cover_image.height }}"
+        class="hideMobile">
+      {%- else -%}
+        {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+      {%- endif -%}
+      
+      {% assign mobileImage = product.metafields.product_video.cover_image_mobile | default:product.metafields.product_video.cover_image %}
+        {% if  mobileImage != blank %}
+          <img 
+          src="{{ mobileImage | img_url: 'master' }}"
+          alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+          loading="lazy"
+          width="{{ section.settings.cover_image.width }}"
+          height="{{ section.settings.cover_image.height }}"
+        class="hideDesktop">
+       {% endif %}
+      <div class="page-width video-caption hideMobile">
+        <h2 class="video-title">{{ product.metafields.product_video.heading }}</h2>
+        <span class="play-icon">
+          {%- render 'icon-watch-video' -%}
+        </span>
+      </div>
+
+    </button>
+    
+    <template>
+
+      
+      {%- if videoUrl contains 'youtu.be' or videoUrl contains 'youtube.com' -%}
+      
+       {%- assign videoType = "youtube" -%}
+      {%- endif -%}
+      
+      {%- if videoUrl contains 'vimeo' -%}
+      
+       {%- assign videoType = "vimeo" -%}
+      
+      {%- endif -%}
+      
+      
+      {%- if videoType == 'youtube' -%}
+        <iframe src="https://www.youtube.com/embed/{{ videoId }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+      {%- else -%}
+        <iframe src="https://player.vimeo.com/video/{{ videoId}}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+      {%- endif -%}
+    </template>
+  </deferred-media>
+
+</div>
+      <div class="page-width video-caption hideDesktop">
+        <h2 class="video-title">{{ product.metafields.product_video.heading }}</h2>
+        <a href="javascript:;" class="play-icon video-play-icon-mob">
+          {%- render 'icon-watch-video' -%}
+        </a>
+      </div>
+     
+{% endif %}
+
+{{ product.metafields.product_video.cover_image.id }}
+
+
+
+{% schema %}
+{
+  "name": "t:sections.product-video.name",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Enabel Full width",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Video"
+    }
+  ]
+}
+  {% endschema %}
