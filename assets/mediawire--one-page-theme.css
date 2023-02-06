@@ -1,0 +1,133 @@
+.btn--link.site-header__icon.site-header__search-toggle.js-drawer-open-top, 
+.site-nav.list--inline,
+.site-footer{
+  display: none;
+}
+
+
+footer {
+  background: #2b2b2b;
+  color: white;
+  padding: 60px 0 15px;
+    font-size: 0.75rem;
+}
+footer p {
+  color: white;
+  margin-bottom: 0;
+}
+footer a {
+color: #fff;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+footer a:hover {
+  color: white;
+}
+footer .copyright {
+  padding-top: 60px;
+}
+
+.cart {
+  /*  color: #ffffff;*/
+    padding-bottom: 100px;
+}
+
+.page-container{
+  min-height:1000px;
+}
+
+.cart th {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    padding: 27.5px 22px;
+    color: rgba(255,255,255,.3);
+    font-size: 11px;
+    font-weight: 700;
+}
+.cart th {
+  
+    color: #000000 !important;
+}
+
+.cart__row {
+   border-bottom: 1px solid rgba(255,255,255,.3);
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.cart-header__title {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+.btn {
+  
+    font-family: inherit;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
+
+.largeinfo .vbox-figlio{
+min-height:300px;
+position: relative;
+}
+.largeinfo  .mwmc--close{
+
+}
+.modal_wrapper {
+  padding:30px;
+}
+
+
+
+
+/* adding back theme items */
+
+ .site-nav.list--inline {
+    display: inherit;
+}
+
+
+/**************/
+
+#hero-new{
+  background-image:url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/HERO_BG2_4.png?v=1646022334);
+  background-repeat: no-repeat;
+  background-position: center center ; 
+  background-size: cover; 
+  background-color:#040404;
+      padding: 70px 0;
+      position: relative;
+}
+#about-section{
+  padding:60px 0;
+  
+}
+
+#about-section .herotext{
+  max-width:600px; 
+  margin-left: auto ; 
+  margin-right:auto;
+
+}
+#about-section .mainhero{
+  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+
+}
+
+#about-section .pointtext {
+    color: #6E6E73;
+    text-transform: uppercase;
+  font-size:15px;
+  font-weight:bold;
+}
+
+#about-section .mainslideimagebg {
+    position: absolute;
+    height: 100%;
+    clip-path: polygon(25% 0%,100% 0%,100% 100%,0% 100%);
+}
+#about-section .cicle{
+  border-radius: 90000px;
+}

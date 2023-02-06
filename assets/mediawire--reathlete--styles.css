@@ -1,0 +1,1483 @@
+body {
+ font-family: 'Montserrat', sans-serif;
+}
+            /* 11/23/22 */
+.announcement-bar p.announcement-bar__message {
+    font-weight: 900;
+}
+.announcement-bar p.announcement-bar__message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-style: italic;
+}
+.announcement-bar .announcement-bar__message span.scnd_sct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+.announcement-bar .announcement-bar__message span.green {
+    font-size: 32px;
+    color: #90ffbc;
+    font-weight: 800;
+    letter-spacing: -.05em;
+}
+.announcement-bar .announcement-bar__message .scnd_sct span:first-child {
+    font-size: 20px;
+    font-weight: 900;
+}
+.announcement-bar .announcement-bar__message .scnd_sct span:last-child {
+    font-size: 11px;
+}
+@media (max-width: 768px) {
+  .announcement-bar p.announcement-bar__message {
+      grid-gap: 0;
+      flex-direction: column;
+  }
+  .announcement-bar .announcement-bar__message span.scnd_sct {
+      flex-direction: row;
+      grid-gap: 17px;
+  }
+  .announcement-bar .announcement-bar__message .scnd_sct span:first-child {
+      font-size: 17px;
+  }
+  .announcement-bar .announcement-bar__message span.green {
+      font-size: 25px;
+  }
+  .announcement-bar .announcement-bar__message .scnd_sct span:last-child {
+      font-size: 13px;
+  }
+}
+/* END */
+h1, h2, h3, h4, h5, .heading{
+  font-weight: 900;
+  letter-spacing: -.02rem;
+}
+h1 {
+  font-size: 1.3rem;
+    line-height: 1.9rem;
+  margin: 30px 0 15px;
+  font-weight: 400;
+      margin-bottom: 23px;
+}
+h2{
+font-size:2.6rem;
+}
+h3{
+  font-size:1.2rem;
+}
+p {
+	font-size: 1rem;
+}
+img {
+  max-width: 100%;
+}
+.btn, .display-sales-modal #proceed-form .mw--btn, .mwus--wrapper .mw--btn {
+background: rgb(41,160,242);
+    background: linear-gradient(
+353deg
+, rgba(41,160,242,1) 0%, rgba(41,112,242,1) 100%);
+    color: white;
+    border-radius: 30px;
+    min-width: 240px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.3rem;
+    letter-spacing: .08rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+
+}
+.btn:hover, .display-sales-modal #proceed-form .mw--btn:hover, .mwus--wrapper .mw--btn:hover{
+  background: rgb(7,114,187);
+background: linear-gradient(353deg, rgba(7,114,187,1) 0%, rgba(41,112,242,1) 100%);
+  color: white;
+}
+.vbox-inline, .venoframe {
+	max-width: 520px;
+  height:auto;
+  width: 90%;
+}
+.heavy, .mwmc--header.js--shipping-message--target.clearfix, .js--shipping-row--target .mw--col-5, .font-heavy, .mwus--product-title{
+  /*  font-size: 1rem;*/
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: .04rem;
+    text-transform: uppercase;
+    display: block;
+}
+
+.mwmc--header, .js--shipping-row--target .mw--col-5{
+  font-size:11px;
+}
+
+
+.blue{
+color:#579DFF;
+}
+.teal{
+  color:#2ED5EA;
+}
+.green{
+  color:#37F1B2;
+}
+h1 span{
+  font-weight:600;
+}
+.mwmc--variant-title.text-grey{
+opacity:0;  
+}
+.vbox-inline .text-green {
+    color: #2970F2;
+}
+#hero .logo {
+  max-width: 320px;
+}
+#hero .btn{
+  margin-top:20px;
+  margin-bottom:10px;
+}
+.smallrtextfooter{
+ font-size:12px; 
+  opacity:.5;
+}
+#hero{
+  background-image:url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__hero_BG.jpg?v=1626459532);
+  background-repeat: no-repeat;
+  background-position: right top; 
+background-size: 810px; 
+  background-color:#040404;
+}
+.white{
+    color:#ffffff;
+}
+.herotext{
+  max-width:600px; 
+  margin-left: auto ; 
+  margin-right:auto;
+
+}
+.mainhero{
+  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+
+}
+
+.mainslideimagebg {
+    position: absolute;
+    height: 100%;
+    clip-path: polygon(25% 0%,100% 0%,100% 100%,0% 100%);
+}
+.cicle{
+  border-radius: 90000px;
+}
+
+#hero .herovideo {
+  position: absolute;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 30px;
+  right: 10%;
+  max-width: 30%;
+  box-shadow: 0 10px 44px rgb(0 0 0 / 10%);
+}
+#hero .special {
+
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.bluegradientbg {
+background: rgb(41,112,242);
+background: linear-gradient(121deg, rgba(41,112,242,1) 0%, rgba(48,204,135,1) 100%);
+}
+
+.bluegradient {
+background: #2970F2;
+background: -webkit-linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+background: -moz-linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+background: linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+#about {
+  padding: 60px 0;
+ background: #030303;
+  position: relative;
+  background-image:url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_2_new.jpg?v=1626461995);
+  background-size:cover; 
+     background-position: top;
+}
+.medium_center{
+  max-width:900px; 
+      margin: 0 auto;
+}
+.icons {
+
+  margin-left:auto; 
+  margin-right:auto; 
+}
+.icons .col-lg-2{
+  -webkit-box-flex: 0;
+    -ms-flex: 0 0 19.666667%;
+    flex: 0 0 19.666667%;
+    max-width: 19.666667%;
+}
+.smalltype{
+font-size: 10px;
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+margin-bottom: 10px;
+}
+
+.largeprice{
+ font-size: 25px;
+    line-height: 12px;
+}
+#about .fullproduct {
+  position: absolute;
+      top: -127px;
+  left: 50%;
+  max-width: 500px;
+  margin-left: -250px;
+}
+.cleartop  h3{
+ margin-top:38px;
+}
+#about .circle {
+    border: 4px solid black;
+    border-radius: 50%;
+    padding: 0;
+    font-weight: bold;
+    max-height: 160px;
+    width: 160px;
+    margin-left: auto;
+    height: 160px;
+    margin-right: auto;
+    display: block;
+}
+#about .circle span span{
+  color: #31B6F0;
+}
+.circle_icon{
+    max-width: 110px;
+    margin: 0 auto;
+    display: block;
+}
+#about .circle span.innertext{
+  width:96%;
+    display: inline-block; 
+  vertical-align: middle;
+  padding-left: 5px;
+    padding-right: 5px;
+        line-height: 21px;
+    font-size: 18px;
+}
+.point_text p{
+    font-weight: youtube600;
+    max-width: 250px;
+    margin: 0 auto;
+}
+.point_text{
+  text-align: center;
+}
+.how-it-works{
+  text-align: center;
+}
+.how-it-works h3{
+font-size: 5rem;
+    display: block;
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.how-it-works{
+  margin-top:50px;
+}
+
+.how-it-works p{
+margin-bottom: 30px;
+    max-width: 540px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+span.aligner{
+  height:160px; 
+  display: inline-block; 
+  vertical-align: middle;
+  width:1px;
+}
+#about .cleartop {
+  margin-top: 110px;
+}
+
+.pressicons{
+
+    max-width: 1543px;
+  margin: 0 auto;
+       margin-top: 110px;
+}
+
+.fullautoplay{
+
+}
+
+.item.video, .item.autoplayvideo{
+    overflow: hidden;
+    overflow: visible;
+        position: relative;
+         /*   margin-top: 17px;*/
+}
+ .item.video video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.slick-dots {
+
+    bottom: -82px;
+    }
+
+.slick-dots li {
+
+    margin: 0 15px;
+  }
+
+.item.autoplayvideo video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+        left: 0;
+}
+
+
+
+
+#reviews .whitebox p.author {
+
+    position: absolute;
+    bottom: 27px;
+}
+
+
+
+
+
+
+
+
+
+/* MAKE ALL THE SLIDES THE SAME HEIGHT!  */
+#reviews .slick-track {  display: flex !important; } 
+#reviews .slick-slide {   height: inherit !important;   display: flex !important;   justify-content: center;  align-items: center; 
+
+padding-left: 20px;
+    padding-right: 20px;
+}
+#reviews .slick-slide > div { 
+  height: 100%; 
+}
+
+#reviews .slick-slide img {
+    height: auto;
+}
+/* MAKE ALL THE SLIDES THE SAME HEIGHT!  */
+
+
+
+
+
+
+#reviews {
+  background-color: #1c1c1c;
+  color: white;
+  padding-bottom: 200px;
+  padding-top:100px;
+}
+#reviews  h2{
+  font-size:5rem;
+  line-height: 5rem;
+  margin-bottom:40px;
+
+}
+#reviews .whitebox {
+  margin: 15px 0 30px;
+    background: #4a4a4a;
+  color: black;
+  padding-bottom: 15px;
+  color: #ffffff;
+      text-align: left;
+      padding-bottom: 40px;
+}
+#reviews .whitebox .stars {
+    width: 120px;
+    margin-top: 35px;
+    margin-left: 40px;
+}
+#reviews .whitebox blockquote {
+padding-left: 40px;
+    padding-right: 40px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 20px;
+    line-height: 2.2rem;
+
+}
+#reviews .whitebox p {
+    padding-left: 40px;
+  padding-right: 15px;
+  font-size: 14px;
+}
+
+#reviews .whitebox p span{
+  color: #facb2a;
+  font-style: italic;
+  margin-left:4px;
+  font-weight:900;
+      text-transform: uppercase;
+}
+ .youtube {
+  margin-bottom: 70px;
+}
+#reviews ul.check {
+  list-style-type: none;
+  margin-top: 15px;
+  text-align: left;
+}
+.align_center{
+  text-align: center;
+}
+ul.check{
+  margin-left:0; 
+  padding-left:0;
+}
+ul.check li {
+    display: inline-block;
+    background: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__icon_check_4.png?v=1626459532) left center no-repeat;
+    background-size: 32px;
+    padding: 5px 5px 0px 34px;
+    width: 49%;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+ul.check.greens li{
+  color:#42CE79;
+    background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__icon_check_2.png?v=1626459532);
+
+} 
+
+.rotatorwrap{
+  display: block;
+}
+
+#modes{
+  background-color: #1c1c1c;
+    clear: both;
+    padding-top: 50px;
+}
+
+.slider-for, .slider-nav{
+display: inline-block; 
+vertical-align: middle; 
+float: none; 
+}
+.slider-nav .holdthumb.slick-slide{
+width:100% !important; 
+clear: both;
+text-align: left;
+opacity: .5
+}
+
+.slider-nav .slick-track{
+ transform:none !important;
+}
+
+.circlerounds{
+background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__round.png?v=1626459533);
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    background-size: cover;
+    line-height: 70px;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+.holdthumb{
+  margin-bottom:20px;
+}
+
+.holdthumb p{
+  margin-top:13px; 
+  font-weight:600;
+}
+
+.circlerounds.heavy.SUNICON{
+/*text-indent: -99999px;*/
+}
+
+.sun{
+width: 30px;
+    margin: 0 auto;
+    line-height: 5px;
+    display: inline-block;
+    margin-top: 20px;
+
+}
+
+.slider-nav .holdthumb.slick-slide:hover{
+  cursor: pointer;
+}
+
+
+
+.holdthumb.slick-slide.slick-current.slick-active{
+opacity: 1;
+}
+
+
+
+
+#reviews ul.check li:last-child {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+.youtube {
+  position: relative;
+  cursor: pointer;
+      border-radius: 34px;
+    overflow: hidden;
+}
+.youtube .iframewrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-bottom: 56.25%;
+  height: 0;
+  display: none;
+  width: 100%;
+}
+ .youtube .iframewrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+#features h2 {
+	font-size: 3rem;
+}
+#features li {
+  font-weight: bold;
+  color: #085CB2;
+  text-transform: uppercase;
+}
+#features ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#features ul li {
+ /* background: url(https://cdn.shopify.com/s/files/1/0573/6058/0806/files/Mediawire__grout__check.png) left center no-repeat;*/
+  background-size: 32px;
+  padding: 5px 5px 5px 40px;
+  margin-bottom: 5px;
+}
+#features ol {
+  counter-reset: list;
+  margin: 0;
+}
+#features ol li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+#features ol li:before {
+  counter-increment: list;
+  content: counter(list, upper-alpha) " ";
+  position: absolute;
+  left: -38px;
+  background: #52BAEF;
+  width: 29px;
+  height: 29px;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 29px;
+}
+#guarantee {
+      background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_3.jpg?v=1626459533);
+    background-size: cover;
+    color: white;
+    padding: 260px 0px;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#guarantee h3{
+  font-size:4rem;
+  line-height: 4rem;
+  margin-bottom:30px;
+}
+#guarantee .seal {
+  max-width: 200px;
+  margin-top: -75px;
+}
+#buynow {
+background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_4.jpg?v=1626459532);
+    background-size: cover;
+    color: white;
+    padding: 100px 0px;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+}
+#buynow .whitebox {
+  background: white;
+  margin-top: 60px;
+  box-shadow: 0 10px 44px rgb(0 0 0 / 10%);
+  padding-bottom: 30px;
+}
+#buynow .product-wrapper {
+  padding: 15px 30px;
+}
+#buynow .stars {
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+}
+#buynow h2 {
+  text-align: center;
+}
+#buynow p {
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*EFFECTING UPSELL IN MINI CART*/
+.mwus--wrapper{
+  background: linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+}
+
+.mwus--special-offer{
+ display: block; 
+ width:150px; 
+ background-color:#000000;
+ margin: 0 auto; 
+ font-size: 13px; 
+}
+
+.mwus--discount-details{
+ font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 10px;
+    margin-bottom: 9px;
+}
+.mwus--variant-title.text-faint, .mwus--product-original-price.text-faint, .mwus--img-col, .mwus--product-title, .mwus--product-sale-price
+{
+  display: none;
+}
+.mwus--items-row.row--1-up {
+ 
+    grid-template-columns: 1fr 0fr;
+    }
+.mwus--order-row{
+
+}
+.mwus--wrapper .mw--btn{
+  background:#000000;
+}
+.mwus--wrapper .mw--btn:hover{
+  text-decoration: none;
+}
+.mwus--order-row .msus--col.col-half{
+width:100%; 
+}
+.mwus--order-row {
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: auto;
+    margin-top: 0px;
+}
+
+/*EFFECTING UPSELL IN MINI CART*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mainproductblock{
+  background-color:#ffffff;
+  box-shadow: 0px 10px 55px rgba(0,0,0,.99);
+  margin-top:22px;
+  color:#000000;
+  position: relative;
+}
+.includes{
+     font-size: 14px;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 100px;
+    display: block;
+}
+
+.saleflag{
+ position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    display: block;
+    background: linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+    clip-path: polygon(0 0, 100% 1%, 100% 100%, 12% 100%);
+    padding-left: 70px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.saleflag .heavy{
+ font-size: 10px;
+}
+
+.includes ul{
+  margin-left:0px; 
+  padding-left:0px;
+}
+.includes ul li{
+width: 45%;
+    list-style: disc;
+    line-height: 21px;
+    float: left;
+    margin-left: 14px;
+}
+
+.buynowheader{
+  margin-bottom:50px;
+
+}
+
+.buynowheader p{
+  max-width:500px; 
+  margin: 0 auto;
+}
+
+#buynow .logo{
+    max-width: 420px;
+    display: block;
+    margin: 0 auto
+}
+#buynow .check{
+  max-width:300px; 
+  margin: 0 auto;
+  margin-top:10px;
+}
+#buynow .check li{
+width:100%; 
+text-align: left;
+font-size:12px;
+margin-bottom: 0;
+}
+#buynow .special {
+  color: white;
+  background: #39C5F4;
+  padding: 5px;
+  display: block;
+  width: 200px;
+  margin: 0 auto 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+#buynow .price {
+	text-align: center;
+    font-size: 18px;
+    color: #C9C9C9;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26px;
+}
+#buynow .sale {
+text-align: center;
+    font-size: 18px;
+    color: #2970F2;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26px;
+}
+#buynow .shipping {
+    text-align: center;
+   
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+
+}
+#buynow .quantity-selector {
+	display: none !important;
+}
+#buynow .btn {
+	margin: 15px auto;
+  display: block;
+      margin-top: 30px;
+}
+#buynow .payments {
+  max-width: 240px;
+  margin: 0 auto;
+  display: block;
+}
+#faq {
+
+  padding: 60px 0;
+}
+.footerlogo{
+  width:200px;
+}
+#faq dt {
+  padding: 0;
+  text-align: left;
+  background-color: tranparent;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding-bottom: 5px;
+  position: relative;
+  margin-top: 20px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+#faq dd {
+    margin-top: 15px;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+#faq dt:after {
+    content: "";
+    position: absolute;
+    background: transparent url(https://cdn.shopify.com/s/files/1/0573/6058/0806/files/Mediawire__grout__arrow.png) right center no-repeat;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    right: 2px;
+    top: -3px;
+    transform: rotate(270deg);
+    transition: transform .1s .1s;
+    filter:brightness(100);
+}
+
+#faq h3{
+  font-size:2.2rem;
+}
+/*BUTTON STICKY REDO*/
+#stickybutton{
+  z-index: 999999;
+  width:100%;
+}
+#stickybutton a {
+  background-color: #67B32C;
+  font-size: 18px;
+  border-radius: 3px;
+  text-transform: capitalize;
+  transform: rotate(360deg);
+  text-align: center;
+  padding: 20px;
+  font-size: 28px;
+  font-family "Source Sans Pro", sans-serif !important;
+}
+#stickybutton a.cart {
+  background-color: #35c2ee;
+  font-size: 18px;
+  border-radius: 3px 0px 0px 3px;
+  text-transform: capitalize;
+  transform: rotate(360deg);
+  text-align: center;
+  padding: 20px 30px;
+  display: block;
+  font-size: 24px;
+  position: absolute;
+  width: auto;
+  right: 0;
+  z-index: 9999;
+  color: #ffffff;
+  font-weight: 800;
+  top: 0;
+  top: -470%;
+  background-image: url(https://cdn.shopify.com/s/files/1/0128/6291/4650/files/cart.png?v=1586390640);
+  text-indent: -9999px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10000px;
+}
+#stickybutton a:hover{
+  text-decoration: none;
+  filter: brightness(.5);
+}
+#stickybutton a.buy {
+  position: relative;
+  width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  margin-right: auto;
+  font-size: 22px;
+  padding: 15px 10px;
+  box-shadow: 0px 0px 0px;
+  width:300px;
+  width: 290px;
+  float: right;
+  margin-top: 13px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 24px;
+ border-radius: 99999px;
+}
+.buynowwrap{
+background-color: #282828;
+    box-shadow: 0px 3px 50px rgb(0 0 0 / 99%);
+  padding:20px; 
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 0px;
+    padding-bottom: 0px;
+}
+.buynowwrap h3{
+  font-size: 19px;
+  text-align: left;
+}
+.buynowwrap .hero_small{
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -7px;
+  bottom: 0;
+  left: auto;
+  position: relative;
+}
+.buynowwrap .imageprod {
+  height: 89px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  margin-right: 10px;
+      margin-left: -22px;
+}
+#stickybutton.sticky {
+  margin-right: auto;
+  transition: margin-right 0.2s;
+  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: auto;
+  transition:margin-bottom 1s ease-in-out ;
+  z-index: 99;
+  width: 100%;
+}
+#stickybutton {
+  margin-right: auto;
+  transition: margin-right 0.2s;
+  margin-bottom: -200px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: auto;
+  transition:margin-bottom .2s ease-in-out ;
+}
+.stickystars {
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+     margin-top: 3px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.stickylogo{
+  width:200px;
+      margin-top: -10px;
+}
+.prodinfosmall {
+  display: inline-block;
+    width: 160px;
+  vertical-align: middle;
+}
+.cartbutton {
+  background-color: #62b3c6;
+  color: #ffffff;
+  transform: rotate(90deg);
+  display: block;
+  padding: 12px;
+  border-radius: 0px 0px 10px 10px;
+  padding: 20px 12px 12px 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0px 7px 33px rgb(0 0 0 / 20%);
+  background-image: url(https://cdn.shopify.com/s/files/1/0128/6291/4650/files/cart.png?v=1586390640);
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-size: 44px;
+  background-position: center;
+  height: 57px;
+  margin-right: -5px;
+  width: 67px;
+  transform: rotate(0deg);
+  border-radius: 10px 0px 0px 10px;
+ 
+   background-color: #2970F2;
+    background-color: -webkit-linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+      background-color: -moz-linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+      background-color: linear-gradient(to right, #2970F2 0%, #30CC87 100%);
+  
+}
+#stickycart {
+  position: fixed;
+  right: 0px;
+  top: 40vh;
+  z-index: 19;
+  margin-right: -100px;
+  transition: margin-right .5s;
+  display: none;
+  right: 103px;
+}
+
+@media (max-width: 767.98px) { 
+ .buynowwrap {
+    width: 94%;
+    margin-bottom: 40px;
+    padding-top: 8px;
+    text-align: left;
+    padding-left: 7px;
+    padding-bottom: 7px;
+}
+  .prodinfosmall{
+    display: none;
+  }
+  .buynowwrap .imageprod {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-left: 0;
+    width: 19%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    max-width: 190px;
+    height: auto;
+  }
+  #stickybutton a.buy {
+    font-size: 17px;
+    padding: 10px 10px;
+    width: auto;
+    float: none;
+    width: 76%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
+  }
+  #stickybutton a.cart {
+
+    top: -350%;
+  }
+
+}
+/*BUTTON STICKY REDO*/
+
+
+#buynow .logo.mobile {
+ display: none;
+}
+
+/*TO HIDE FOR NOW*/
+#stickybutton a.cart{
+  display: none !important;
+}
+
+.slick-dots li button:before{
+font-size:33px;
+color:#ffffff;
+}
+
+slick-dots li {
+
+    width: 34px;
+    }
+
+
+    .slick-dots li.slick-active button:before {
+
+    color: white;
+}
+
+
+
+
+@media (max-width: 1250px) {
+ #hero{
+  padding-bottom:100px; 
+ }
+  #about .circle {
+
+    background-color: #f2f2f2;
+	}
+}
+/*MOBILE EDITS*/
+
+@media (max-width: 991.98px) {
+    .heavy, .mwmc--header.js--shipping-message--target.clearfix, .js--shipping-row--target .mw--col-5 {
+    font-size: .8rem;
+  }
+  #buynow .logo.desktop{
+    display: none;
+  }
+  .mobilegutter {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .nomobilegutter {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #hero {
+ padding-bottom: 0px;
+  }
+  #hero .herovideo {
+    max-width: 30%;
+  }
+  #reviews .youtube {
+
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+#buynow .col-lg-6.text-center.buynowinners{
+margin-top:10px;
+border-top:2px solid rgba(0,0,0,.02);
+padding-top: 10px;
+padding-bottom:30px;
+}
+#buynow .btn {
+width:90%; 
+    margin-top: 17px;
+}
+
+h2, h2.heavy{
+  font-size:2rem;
+      text-align: center;
+}
+.how-it-works p {
+    text-align: left;
+}
+.secondary{
+  border-radius: 0px; margin-top:30px;
+}
+.youtube {
+    margin-bottom: 30px;
+    border-radius: 0;
+}
+.container.mobile-fluid{
+      padding-left: 0;
+    padding-right: 0;
+}
+.icons .col-lg-2 {
+   -webkit-box-flex: 0;
+    -ms-flex: 0 0 19.666667%;
+    flex: 0 0 49.666667%;
+    max-width: 45.666667%;
+    border: 1px solid #444444;
+    margin: 2%;
+    padding: 5%;
+    padding-top: 0px;
+    font-size: 14px;
+}
+
+.saleflag {
+
+    clip-path: none;
+     position: relative;
+    width: 100%;
+    padding-left: 20px;
+}
+
+#buynow .logo.mobile {
+     display: block;
+    margin-bottom: -20px;
+    margin-top: 20px;
+    width: 290px;
+}
+.how-it-works h3 {
+    font-size: 4rem;
+    line-height: 4rem;
+    margin-bottom: 30px;
+}
+.col-lg-4.point_text{
+ border: 1px solid #444444;
+    padding: 30px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-top: 0;
+}
+.pressicons {
+
+    margin-top: -100px;
+}
+.holdthumb p {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.holdthumb {
+    margin-bottom: 0px;
+}
+#modes {
+ 
+    padding-top: 70px;
+}
+.icons .col-lg-2:last-child{
+  -webkit-box-flex: 0;
+    -ms-flex: 0 0 19.666667%;
+    flex: 0 0 96%;
+    max-width: 96%;
+}
+ #hero .logo {
+      margin-top: 20px;
+    width: 380px;
+    margin-bottom: -16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  #hero p {
+    text-align: left;
+  }
+  #hero .special {
+    text-align: center;
+    margin-bottom: 21px;
+  }
+  #about {
+    padding-top: 0;
+  }
+  #about .fullproduct {
+position: unset;
+    margin-top: -200px;
+    margin-left: 0;
+    margin-bottom: -60px;
+    max-width: 420px;
+  }
+  .herofreeships span{
+    display: block;
+  }
+  #about .cleartop {
+    margin-top: 30px;
+  }
+  #about h3 {
+    margin-top: 30px;
+  }
+  #reviews h2 {
+   font-size: 2.4rem;
+    line-height: 2.6rem;
+    margin-bottom: 40px;
+    display: block;
+    width: 87%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  .green {
+  
+    display: block;
+}
+#reviews .slick-slide {
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#reviews .whitebox p {
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 12px;
+}
+#reviews {
+
+    padding-bottom: 160px;
+  }
+
+  #guarantee h3 {
+    font-size: 3rem;
+    line-height: 3rem;
+  
+}
+#guarantee .bluegradient{
+  background:none;
+      -webkit-background-clip: none;
+    -webkit-text-fill-color: #ffffff;
+}
+
+  #guarantee {
+    background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_3_MOBILE.jpg?v=1626720332);
+  
+    padding: 110px 0px;
+  }
+
+  #buynow {
+    background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_2_MOBILE.jpg?v=1626720332);
+    background-size: cover;
+  }
+#reviews .whitebox blockquote {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1rem;
+  margin-top:10px;
+
+    line-height: 1.6rem;
+}
+#buynow .product-wrapper {
+    padding: 5px 10px;
+}
+#buynow .logo {
+  
+    width: 100%;
+}
+
+.mainproductblock {
+
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#reviews .whitebox .stars {
+    width: 90px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.green, .teal, .blue {
+    font-size: 1.8rem;
+    color: #ffffff;
+    display: block;
+    line-height: 2rem;
+}
+  #reviews h3 {
+    margin-top: 30px;
+  }
+  #hero .btn {
+    width: 90%;
+  }
+  #reviews ul.check {
+    padding-left: 15px;
+  }
+  #reviews ul.check li {
+    width: 100%;
+  }
+  #reviews ul.check li:last-child {
+    width: 100%;
+  }
+  #features {
+    padding-bottom: 120px;
+  }
+
+#buynow p {
+    text-align: center;
+    margin-bottom: 0px;
+}
+.includes {
+    margin-bottom: 80px;
+    }
+#buynow ul {
+    padding-left: 25%;
+    clear: both;
+    display: block;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 11px;
+  }
+    h1 {
+   font-size: 1rem;
+    line-height: 1.4rem;
+  }
+  #about {
+   
+    background-image: url(https://cdn.shopify.com/s/files/1/0249/8687/8038/files/mediawire__reathlete__BG_2_MOBILE_V3.jpg?v=1626727787);
+
+  }
+}
+
+
+
+
+/* UPSELL CHANGE */
+
+
+.mwus--img-col, .mwus--product-original-price.text-faint, .mwus--product-sale-price, .mwus--product-title, .mwus--variant-title.text-faint {
+    display: block;
+}
+
+.mwus--product-title, .mwus--variant-title.text-faint{
+ display:none; 
+}
+
+.mwus--info-col{
+    width: 100%; 
+}
+
+
+.mwus--img-col {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 120px;
+}
+.mwus--items-row.row--1-up {
+    grid-template-columns: inherit;
+}
+
+.mwus--discount-details {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.mwus--order-row {
+  
+    text-align: center;
+    margin: 0 auto;
+}
+/* UPSELL CHANGE */
+

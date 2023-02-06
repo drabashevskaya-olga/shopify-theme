@@ -1,0 +1,61 @@
+.support-nabber-data {
+    position: relative;
+}
+.support-nabber-data img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner-overlap-data {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    left: 0;
+}
+.banner-overlap-data .banner-content {
+    width: 50%;
+    padding-left: 115px;
+    max-width: 600px;
+}
+.banner-overlap-data .banner-content h2 {
+    font-size: 50px;
+    margin: 0px;
+    line-height: 100%;
+    color: #fff;
+    margin-bottom: 20px;
+}
+  .banner-overlap-data .banner-content p {
+      color: #ffffff;
+      font-size: 26px;
+      line-height: 33.8px;
+      margin: 0px;
+  }
+.page-support .abouts-section .about-warpper-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (max-width:767px){
+  .banner-overlap-data {
+    position: relative;
+  }
+.banner-overlap-data .banner-content {
+    width: 100%;
+    padding-left: 0;
+    max-width: 100%;
+    padding-top: 25px;
+}
+  .banner-overlap-data .banner-content h2 {
+    font-size: 28px;
+    color: #252525;
+  }
+  .banner-overlap-data .banner-content p {
+    color: #1a1a1a;
+    font-size: 18px;
+    line-height: 21.8px;
+  }
+}
